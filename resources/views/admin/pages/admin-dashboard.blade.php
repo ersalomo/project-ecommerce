@@ -1,6 +1,5 @@
-@extends('admin.layouts.auth.layout-admin')
+@extends('admin.layouts.layout-admin')
 @section('pageTitle', isset($pageTitle) ? $pageTitle : 'Dashboard Admin')
-
 @section('content')
-    dashboard...
+    @livewire('admin.dashboard-admin')
 @endsection

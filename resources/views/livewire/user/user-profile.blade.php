@@ -26,7 +26,7 @@
                             <label class="small mb-1" for="inputUsername">Username (how your name will appear to
                                 other users on the site)</label>
                             <input class="form-control" id="inputUsername" type="text"
-                                placeholder="Enter your username" value="username">
+                                placeholder="Enter your username" wire:model="usernameUser">
                         </div>
                         <!-- Form Row-->
                         <div class="row gx-3 mb-3">
@@ -34,7 +34,7 @@
                             <div class="col-md-6">
                                 <label class="small mb-1" for="inputFirstName">First name</label>
                                 <input class="form-control" id="inputFirstName" type="text"
-                                    placeholder="Enter your first name" value="Valerie">
+                                    placeholder="Enter your first name" wire:model="nameUser">
                             </div>
                             <!-- Form Group (last name)-->
                             <div class="col-md-6">
@@ -53,16 +53,16 @@
                             </div>
                             <!-- Form Group (location)-->
                             <div class="col-md-6">
-                                <label class="small mb-1" for="inputLocation">Location</label>
+                                <label class="small mb-1" for="inputLocation">Address</label>
                                 <input class="form-control" id="inputLocation" type="text"
-                                    placeholder="Enter your location" value="San Francisco, CA">
+                                    placeholder="Enter your location" wire:model="addressUser">
                             </div>
                         </div>
                         <!-- Form Group (email address)-->
                         <div class="mb-3">
                             <label class="small mb-1" for="inputEmailAddress">Email address</label>
                             <input class="form-control" id="inputEmailAddress" type="email"
-                                placeholder="Enter your email address" value="name@example.com">
+                                placeholder="Enter your email address" wire:model="emailUser">
                         </div>
                         <!-- Form Row-->
                         <div class="row gx-3 mb-3">

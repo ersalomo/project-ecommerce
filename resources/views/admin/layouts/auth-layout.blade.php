@@ -21,7 +21,6 @@
     <div>
         @yield('content')
     </div>
-
     <script src="bootstrap/back/dist/js/tabler.min.js"></script>
     @stack('scripts')
     @livewireScripts
