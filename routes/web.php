@@ -6,6 +6,7 @@ use App\Http\Controllers\detailController;
 use App\Http\Controllers\cartController;
 use App\Http\Controllers\authController;
 use App\Http\Controllers\checkOutInsertTransactionController as checkOut;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,29 +21,6 @@ use App\Http\Controllers\checkOutInsertTransactionController as checkOut;
 Route::get('/', function () {
     return view('welcome');
 });
-// Route::get("home-page/", [homeController::class, 'home'])->name("home-page");
-// Route::post("/logout", [homeController::class, 'logout'])->name("logout");
-/*shop controller*/
-// Route::get("/product/{id}/detail/", [detailController::class, 'detailProduct'])->name("product-detail");
-
-// /*authController*/
-// Route::get('login', [authController::class, 'pageLogin'])->name('login');
-// Route::get('register', [authController::class, 'pageRegister'])->name('register');
-
-/*cart*/
-// Route::get('home-page/all-cards', [cartController::class, 'index'])->name("all-cards");
-// Route::get('home-page/add-Card/{id}', [cartController::class, 'addToCart'])->name("add-Card");
-// Route::patch('/updateCard/{id}', [cartController::class, 'updateQty'])->name("update-Card");
-// http://127.0.0.1:8000/home-page#
-
-// checkout
-// Route::post('checkout', [checkout::class, 'checkout'])->name('checkout');
-
-//user-profile
-// Route::view('user-profile', 'user.user-profile')->name('user-profile');
-
-// http://localhost/e-commerce-project/public/home-page
-
 
 /*
 - how i can be middleware for
