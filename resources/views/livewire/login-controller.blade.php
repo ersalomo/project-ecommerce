@@ -1,13 +1,12 @@
 <div>
     {{-- If your happiness depends on money, you will never be happy with yourself. --}}
-
     <section class="ftco-section">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-6 text-center mb-1">
+
                     @if (Session::get('failed'))
                         <div class=" alert alert-danger">
-
                             {{ Session::get('failed') }}
                         </div>
                     @endif

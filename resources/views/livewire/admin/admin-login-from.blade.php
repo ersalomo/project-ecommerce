@@ -15,7 +15,7 @@
             </div>
         @endif
 
-        <form class="card card-md" wire:submit.prevent="loginHandler()" method="post" autocomplete="off">
+        <form class="card card-md" wire:submit.prevent="loginAdmin()" method="post" autocomplete="off">
             <div class="card-body">
                 <h2 class="card-title text-center mb-4">Login to your account</h2>
                 <div class="mb-3">
