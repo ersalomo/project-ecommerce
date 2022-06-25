@@ -56,30 +56,35 @@
                                 </thead>
                                 <tbody>
 
-                                    @foreach ($transactions as $transaction)
+                                    @foreach ($data_transactions as $dt)
                                         <tr>
                                             <td><input class="form-check-input m-0 align-middle" type="checkbox"
                                                     aria-label="Select invoice"></td>
                                             <td><span
-                                                    class="text-muted">{{ $loop->iteration + $transactions->firstItem() - 1 }}</span>
+                                                    class="text-muted">{{ $loop->iteration + $data_transactions->firstItem() - 1 }}</span>
                                             </td>
                                             <td><a href="invoice.html" class="text-reset"
-                                                    tabindex="-1">{{ $transaction->getUser->name }}</a></td>
+                                                    tabindex="-1">{{ $dt->getTransactionWithUser }}</a></td>
                                             <td>
-                                                {{-- {{ $transaction->category_id }} --}}
+                                                {{ $dt->getProducts }}
+                                                {{-- @foreach ($dt->getProducts as $data)
+                                                    <ul>
+                                                        <li>{{ $data->count() }}</li>
+                                                    </ul>
+                                                @endforeach --}}
                                             </td>
                                             <td>
-                                                {{-- {{ $transaction->price }} --}}
+
                                             </td>
                                             <td>
 
                                             </td>
                                             <td>
                                                 <span class="badge bg-success me-1"></span>
-                                                {{ $transaction->created_at }}
+                                                {{ $dt->created_at }}
 
                                             </td>
-                                            {{-- <td>{{ $product->updated_at }}</td> --}}
+                                            <td>{{ $dt->updated_at }}</td>
                                             <td class="text-end">
                                                 <span class="dropdown">
                                                     <button class="btn dropdown-toggle align-text-top"
@@ -104,20 +109,18 @@
                         </div>
                         <div class="card-footer d-flex align-items-center">
                             <p class="m-0 text-muted">Showing <span>1</span> to
-                                <span>{{ $transactions->perPage() }}</span> of
-                                <span>{{ $transactions->total() }}</span>
+                                <span>{{ $data_transactions->perPage() }}</span> of
+                                <span>{{ $data_transactions->total() }}</span>
                                 entries
                             </p>
                             <ul class="pagination m-0 ms-auto">
 
-                                {{ $transactions->links() }}
+                                {{ $data_transactions->links() }}
 
                             </ul>
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
-</div>

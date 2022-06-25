@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\AdminController;
 
 
 Route::prefix('admin')->name("admin.")->group(function () {
@@ -15,5 +16,7 @@ Route::prefix('admin')->name("admin.")->group(function () {
         Route::view('list-products', 'admin.pages.data.list-products')->name('list-products');
         Route::view('data-carts', 'admin.pages.data.data-carts')->name('data-carts');
         Route::view('data-transactions', 'admin.pages.data.data_transaction')->name('data-transactions');
+        Route::view('detail-transactions', 'admin.pages.data.list-detail-trans')->name('detail-transaction');
+        Route::post('logout', [AdminController::class, 'logout'])->name('logout');
     });
 });

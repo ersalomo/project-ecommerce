@@ -64,6 +64,9 @@
                                         <a class="dropdown-item" href="{{ route('admin.data-transactions') }}">
                                             Transaction
                                         </a>
+                                        <a class="dropdown-item" href="{{ route('admin.detail-transaction') }}">
+                                            Detail Transaction
+                                        </a>
 
                                     </div>
 
@@ -111,7 +114,8 @@
             <div class="nav-item dropdown">
                 <a href="#" class="nav-link d-flex lh-1 text-reset p-0" data-bs-toggle="dropdown"
                     aria-label="Open user menu">
-                    <span class="avatar avatar-sm" style="background-image: url(./static/avatars/000m.jpg)"></span>
+                    <span class="avatar avatar-sm"
+                        style="background-image: url({{ asset('bootstrap/asset/admin.png') }})"></span>
                     <div class="d-none d-xl-block ps-2">
                         <div>{{ Auth::guard('admin')->user()->name }}</div>
                         <div class="mt-1 small text-muted">{{ Auth::guard('admin')->user()->email }}</div>
@@ -123,7 +127,11 @@
                     <a href="#" class="dropdown-item">Feedback</a>
                     <div class="dropdown-divider"></div>
                     <a href="#" class="dropdown-item">Settings</a>
-                    <a href="#" class="dropdown-item">Logout</a>
+                    <form action="{{ route('admin.logout') }}" method="post" class="dropdown-item">
+                        @csrf
+                        <input type="submit" class=" btn btn-danger btn-md" value="Logout" />
+                    </form>
+
                 </div>
             </div>
         </div>
