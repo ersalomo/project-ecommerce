@@ -12,10 +12,8 @@ class ListProducts extends Component
     protected $paginationTheme = 'bootstrap';
     public function render()
     {
-        return view('livewire.data.list-products', [
-            'products' => Product::orderBy('product_name', 'asc')->paginate(10),
-
-        ]);
+        $products = Product::orderBy('category_id')->paginate(10);
+        return view('livewire.data.list-products', compact('products'));
         // return view('livewire.countries',[
         //     'continents'=>Continent::orderBy('continent_name','asc')->get(),
         //     'countries'=>Country::orderBy('country_name','asc')->paginate(5)

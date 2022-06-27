@@ -58,16 +58,16 @@
                                             <td><input class="form-check-input m-0 align-middle" type="checkbox"
                                                     aria-label="Select invoice"></td>
                                             <td><span
-                                                    class="text-muted">{{ $loop->iteration + $products->firstItem() }}</span>
+                                                    class="text-muted">{{ $loop->iteration + $products->firstItem() - 1 }}</span>
                                             </td>
                                             <td><a href="invoice.html" class="text-reset"
                                                     tabindex="-1">{{ $product->product_name }}</a></td>
                                             <td>
                                                 {{-- <span class="flag flag-country-pl"></span> --}}
-                                                {{ $product->category_id }}
+                                                {{ $product->getCategoryName->category_name }}
                                             </td>
-                                            <td>
-                                                {{ $product->price }}
+                                            <td>Rp.
+                                                {{ number_format($product->price, 3) }}
                                             </td>
                                             <td>
 
@@ -84,12 +84,15 @@
                                                         data-bs-boundary="viewport"
                                                         data-bs-toggle="dropdown">Actions</button>
                                                     <div class="dropdown-menu dropdown-menu-end">
-                                                        <a class="dropdown-item" href="#">
-                                                            Action
-                                                        </a>
-                                                        <a class="dropdown-item" href="#">
-                                                            Another action
-                                                        </a>
+                                                        <button class=" btn btn-info" href="#">
+                                                            show
+                                                        </button><br>
+                                                        <button class="my-1 btn btn-warning" href="#">
+                                                            edit
+                                                        </button><br>
+                                                        <button class="btn btn-danger" href="#">
+                                                            delete
+                                                        </button><br>
                                                     </div>
                                                 </span>
                                             </td>

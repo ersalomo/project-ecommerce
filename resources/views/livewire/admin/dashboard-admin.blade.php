@@ -203,8 +203,8 @@
                                         <div class="col-auto">
                                             <span class="bg-blue text-white avatar">
                                                 <!-- Download SVG icon from http://tabler-icons.io/i/currency-dollar -->
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="icon"
-                                                    width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24"
+                                                    height="24" viewBox="0 0 24 24" stroke-width="2"
                                                     stroke="currentColor" fill="none" stroke-linecap="round"
                                                     stroke-linejoin="round">
                                                     <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
@@ -232,10 +232,43 @@
                                 <div class="card-body">
                                     <div class="row align-items-center">
                                         <div class="col-auto">
+                                            <span class="bg-blue text-white avatar">
+
+                                                <svg xmlns="http://www.w3.org/2000/svg"
+                                                    class="icon icon-tabler icon-tabler-coin" width="24"
+                                                    height="24" viewBox="0 0 24 24" stroke-width="2"
+                                                    stroke="currentColor" fill="none" stroke-linecap="round"
+                                                    stroke-linejoin="round">
+                                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                                    <circle cx="12" cy="12" r="9"></circle>
+                                                    <path
+                                                        d="M14.8 9a2 2 0 0 0 -1.8 -1h-2a2 2 0 0 0 0 4h2a2 2 0 0 1 0 4h-2a2 2 0 0 1 -1.8 -1">
+                                                    </path>
+                                                    <path d="M12 6v2m0 8v2"></path>
+                                                </svg>
+                                            </span>
+                                        </div>
+                                        <div class="col">
+                                            <div class="font-weight-medium">
+                                                {{ $transactions->count() }} Transactions
+                                            </div>
+                                            <div class="text-muted">
+                                                12 waiting payments
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="card card-sm">
+                                <div class="card-body">
+                                    <div class="row align-items-center">
+                                        <div class="col-auto">
                                             <span class="bg-green text-white avatar">
                                                 <!-- Download SVG icon from http://tabler-icons.io/i/shopping-cart -->
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="icon"
-                                                    width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24"
+                                                    height="24" viewBox="0 0 24 24" stroke-width="2"
                                                     stroke="currentColor" fill="none" stroke-linecap="round"
                                                     stroke-linejoin="round">
                                                     <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
@@ -248,7 +281,38 @@
                                         </div>
                                         <div class="col">
                                             <div class="font-weight-medium">
-                                                78 Orders
+                                                no data Orders
+                                            </div>
+                                            <div class="text-muted">
+                                                32 shipped
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="card card-sm">
+                                <div class="card-body">
+                                    <div class="row align-items-center">
+                                        <div class="col-auto">
+                                            <span class="bg-green text-white avatar">
+                                                <!-- Download SVG icon from http://tabler-icons.io/i/shopping-cart -->
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24"
+                                                    height="24" viewBox="0 0 24 24" stroke-width="2"
+                                                    stroke="currentColor" fill="none" stroke-linecap="round"
+                                                    stroke-linejoin="round">
+                                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                                    <circle cx="6" cy="19" r="2"></circle>
+                                                    <circle cx="17" cy="19" r="2"></circle>
+                                                    <path d="M17 17h-11v-14h-2"></path>
+                                                    <path d="M6 5l14 1l-1 7h-13"></path>
+                                                </svg>
+                                            </span>
+                                        </div>
+                                        <div class="col">
+                                            <div class="font-weight-medium">
+                                                {{ $carts->count() }} Carts
                                             </div>
                                             <div class="text-muted">
                                                 32 shipped
@@ -265,8 +329,8 @@
                                         <div class="col-auto">
                                             <span class="bg-yellow text-white avatar">
                                                 <!-- Download SVG icon from http://tabler-icons.io/i/users -->
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="icon"
-                                                    width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24"
+                                                    height="24" viewBox="0 0 24 24" stroke-width="2"
                                                     stroke="currentColor" fill="none" stroke-linecap="round"
                                                     stroke-linejoin="round">
                                                     <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
@@ -279,7 +343,7 @@
                                         </div>
                                         <div class="col">
                                             <div class="font-weight-medium">
-                                                1352 Members
+                                                {{ $users->count() }} Users
                                             </div>
                                             <div class="text-muted">
                                                 163 registered today
@@ -296,8 +360,8 @@
                                         <div class="col-auto">
                                             <span class="bg-twitter text-white avatar">
                                                 <!-- Download SVG icon from http://tabler-icons.io/i/brand-twitter -->
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="icon"
-                                                    width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24"
+                                                    height="24" viewBox="0 0 24 24" stroke-width="2"
                                                     stroke="currentColor" fill="none" stroke-linecap="round"
                                                     stroke-linejoin="round">
                                                     <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
@@ -326,8 +390,8 @@
                                         <div class="col-auto">
                                             <span class="bg-facebook text-white avatar">
                                                 <!-- Download SVG icon from http://tabler-icons.io/i/brand-facebook -->
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="icon"
-                                                    width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24"
+                                                    height="24" viewBox="0 0 24 24" stroke-width="2"
                                                     stroke="currentColor" fill="none" stroke-linecap="round"
                                                     stroke-linejoin="round">
                                                     <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>

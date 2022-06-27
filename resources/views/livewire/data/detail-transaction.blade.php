@@ -45,10 +45,10 @@
                                                 <polyline points="6 15 12 9 18 15"></polyline>
                                             </svg>
                                         </th>
-                                        <th>Nama Product</th>
-                                        <th>Category</th>
+                                        <th>Nama User</th>
+                                        <th>Nama product</th>
                                         <th>Price</th>
-                                        <th>Desc</th>
+                                        <th>image</th>
                                         <th>Created_at</th>
                                         <th>Update_at</th>
                                         <th></th>
@@ -58,32 +58,22 @@
 
                                     @foreach ($data_transactions as $dt)
                                         <tr>
-                                            <td><input class="form-check-input m-0 align-middle" type="checkbox"
-                                                    aria-label="Select invoice"></td>
-                                            <td><span
+                                            <td>
+                                                <input class="form-check-input m-0 align-middle" type="checkbox"
+                                                    aria-label="Select invoice">
+                                            </td>
+
+                                            <td>
+                                                <span
                                                     class="text-muted">{{ $loop->iteration + $data_transactions->firstItem() - 1 }}</span>
                                             </td>
-                                            <td><a href="invoice.html" class="text-reset"
-                                                    tabindex="-1">{{ $dt->getTransactionWithUser }}</a></td>
-                                            <td>
-                                                {{ $dt->getProducts }}
-                                                {{-- @foreach ($dt->getProducts as $data)
-                                                    <ul>
-                                                        <li>{{ $data->count() }}</li>
-                                                    </ul>
-                                                @endforeach --}}
-                                            </td>
-                                            <td>
 
-                                            </td>
-                                            <td>
+                                            <td></td>
+                                            <td> </td>
+                                            <td></td>
+                                            <td></td>
 
-                                            </td>
-                                            <td>
-                                                <span class="badge bg-success me-1"></span>
-                                                {{ $dt->created_at }}
-
-                                            </td>
+                                            <td><span class="badge bg-success me-1"></span>{{ $dt->created_at }}</td>
                                             <td>{{ $dt->updated_at }}</td>
                                             <td class="text-end">
                                                 <span class="dropdown">
