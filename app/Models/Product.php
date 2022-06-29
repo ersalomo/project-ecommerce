@@ -8,8 +8,16 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
     use HasFactory;
-    protected $guarded = [];
-    // category_id	product_name	price	image	description	created_at	updated_at
+    // protected $guarded = [];
+    protected $fillable = [
+        "category_id",
+        "product_name",
+        "price",
+        "image",
+        "description",
+        "created_at",
+        "updated_at"
+    ];
 
     public function getCategoryName()
     {

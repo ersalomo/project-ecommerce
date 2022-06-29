@@ -10,25 +10,29 @@
             </div>
             <div class="modal-body">
                 {{-- form  upload gambar --}}
-                <div class="col-auto d-md-flex">
-                    {{-- connecting to profile.blade --}}
+                {{-- <div class="col-auto d-md-flex">
+                    <!--connecting to profile.blade -->
                     <input type="file" name="file" id="changeAuthorPictureFile" class="d-none"
                         onchange="this.dispatchEvent(new InputEvent
     ('input'))">
                     <a href="#" class="btn btn-primary"
-                        onclick="event.preventDefault();document.getElementById('changeAuthorPictureFile'). click();">
-                        Change Picture
-                    </a>
-                </div>
+                    onclick="event.preventDefault();document.getElementById('changeAuthorPictureFile'). click();">
+                    Change Picture
+                </a>
+            </div> --}}
                 <div class="row">
-                    <form wire.click.prevent="uploadImage">
+                    <form method="POST" action="{{ route('admin.updateImage') }}" id="uploadImage"
+                        enctype="multipart/form-data">
+                        @csrf
+                        <input type="text" name="product_id" wire:model="product_id" value="{{ $product_id }}">
                         <div class="form-group" style="padding-left:25%;">
-                            <img src="{{ $image_product }}" class="img-fluid" style="width:50%; height:50%;"
-                                wire:model="image_product" alt="image product" srcset="">
-                            @if ($image)
+                            <img src="{{ asset('image/products/' . $image_product) }}" class="img-fluid"
+                                style="width:50%; height:50%;" wire:model="image_product" alt="image product"
+                                srcset="">
+                            {{-- @if ($image)
                                 <img src="{{ $image->temporaryUrl() }}" style="width:50%; height:50%;">
-                            @endif
-                            <input type="file" class="form-control-sm my-1 pr-10" wire:model="image">
+                            @endif --}}
+                            <input type="file" name="gambar"class="form-control-sm my-1 pr-10 btnDisabled">
                             <div wire:loading wire:target="image">Uploading...</div>
                             @error('image')
                                 <span class="error">
@@ -41,7 +45,7 @@
 
                 </div>
                 <form wire:submit.prevent="update" id="formShow">
-                    <input type="hidden" wire:model="product_id">
+                    <input type="hidden" name="product_id" wire:model="product_id" value="{{ $product_id }}">
                     <div class="form-group">
                         <label for="">Nama Product</label>
                         <input type="text" class="form-control" wire:model="nm_product" value="">
@@ -62,7 +66,7 @@
                     </div>
                     <div class="form-group">
                         <label for="">Description product</label>
-                        <textarea class="form-control" wire:model="desc_product" cols="30" rows="3"></textarea>
+                        <textarea class="form-control btnDisabled" wire:model="desc_product" cols="30" rows="3"></textarea>
                         <span class="text-danger"> @error('desc_product')
                                 {{ $message }}
                             @enderror

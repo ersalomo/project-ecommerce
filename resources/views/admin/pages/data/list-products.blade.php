@@ -4,7 +4,6 @@
     <div class="page-breadcrumb bg-white">
         <div class="page-body">
             @livewire('data.list-products')
-
         </div>
     </div>
 

@@ -21,15 +21,6 @@ class ListProducts extends Component
     {
     }
 
-    public function uploadImage()
-    {
-        $this->validate([
-            'images' => 'required|image|png|jpg|jpeg|max:1024',
-        ]);
-        $this->image->store('photos');
-        $this->image = null;
-    }
-
     public function render()
     {
         if ($this->paginator <= 0) {
@@ -37,7 +28,7 @@ class ListProducts extends Component
             $this->paginator = 1;
         }
 
-        $products = Product::orderBy('category_id')->paginate($this->paginator);
+        $products = Product::orderBy('id')->paginate($this->paginator);
         $categories = Category::all();
         return view('livewire.data.list-products', compact('products', 'categories'));
     }

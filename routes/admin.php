@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\ProdcutController;
 
 
 Route::prefix('admin')->name("admin.")->group(function () {
@@ -20,5 +21,7 @@ Route::prefix('admin')->name("admin.")->group(function () {
         Route::view('data-transactions', 'admin.pages.data.data_transaction')->name('data-transactions');
         Route::view('detail-transactions', 'admin.pages.data.list-detail-trans')->name('detail-transaction');
         Route::post('logout', [AdminController::class, 'logout'])->name('logout');
+
+        Route::post('updateImage', [ProdcutController::class, 'changeProfilePicture'])->name('updateImage');
     });
 });

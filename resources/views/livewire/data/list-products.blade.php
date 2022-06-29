@@ -12,6 +12,10 @@
                             <div class="alert alert-info mx-auto col-3" role="alert">
                                 {{ Session::get('success') }}
                             </div>
+                        @elseif (Session::has('fail'))
+                            <span class="alert alert-danger mx-auto col-3" role="alert">
+                                {{ Session::get('fail') }}
+                            </span>
                         @endif
                         <div class="card-body border-bottom py-3">
                             <div class="d-flex">
@@ -71,8 +75,7 @@
                                             <td><span
                                                     class="text-muted">{{ $loop->iteration + $products->firstItem() - 1 }}</span>
                                             </td>
-                                            <td><a href="invoice.html" class="text-reset"
-                                                    tabindex="-1">{{ $product->product_name }}</a></td>
+                                            <td>{{ $product->product_name }}</td>
                                             <td>
                                                 {{-- <span class="flag flag-country-pl"></span> --}}
                                                 {{ $product->getCategoryName->category_name }}
@@ -142,6 +145,7 @@
         window.addEventListener('showProduct', function(e) {
             $('.editProduct #formShow').find('input').attr('disabled', true);
             $('.editProduct #formShow').find('.btnDisabled').attr('disabled', true);
+            $('form#uploadImage').find('.btnDisabled').attr('disabled', true);
             $('.editProduct h5').html("Show data product")
             $('.editProduct').modal('show');
         })
