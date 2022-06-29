@@ -1,19 +1,30 @@
 <div class="page-breadcrumb bg-white">
     <div class="page-body">
+
         <div class="container-xl">
             <div class="row row-deck row-cards">
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Invoices</h3>
+                            <h3 class="card-title">Products</h3>
                         </div>
+                        @if (Session::has('success'))
+                            <div class="alert alert-info mx-auto col-3" role="alert">
+                                {{ Session::get('success') }}
+                            </div>
+                        @endif
                         <div class="card-body border-bottom py-3">
                             <div class="d-flex">
                                 <div class="text-muted">
                                     Show
                                     <div class="mx-2 d-inline-block">
-                                        <input type="text" class="form-control form-control-sm" value="8"
-                                            size="3" aria-label="Invoices count">
+                                        <select wire:model="paginator" class="form-control form-control-sm"
+                                            id="">
+                                            @for ($i = 0; $i <= 50; $i += 5)
+                                                <option value="{{ $i }}">{{ $i }}</option>
+                                            @endfor
+                                        </select>
+
                                     </div>
                                     entries
                                 </div>
@@ -84,13 +95,16 @@
                                                         data-bs-boundary="viewport"
                                                         data-bs-toggle="dropdown">Actions</button>
                                                     <div class="dropdown-menu dropdown-menu-end">
-                                                        <button class=" btn btn-info" href="#">
+                                                        <button wire:click="show({{ $product->id }})"
+                                                            class="ml-1 btn btn-info btn-sm" href="#">
                                                             show
                                                         </button><br>
-                                                        <button class="my-1 btn btn-warning" href="#">
+                                                        <button wire:click="editProduct({{ $product->id }})"
+                                                            class="ml-1 my-1 btn btn-warning btn-sm">
                                                             edit
                                                         </button><br>
-                                                        <button class="btn btn-danger" href="#">
+                                                        <button wire:click.prevent="delete({{ $product->id }})"
+                                                            class="ml-1 btn btn-danger btn-sm" href="#">
                                                             delete
                                                         </button><br>
                                                     </div>
@@ -98,7 +112,6 @@
                                             </td>
                                         </tr>
                                     @endforeach
-
 
                                 </tbody>
                             </table>
@@ -109,6 +122,7 @@
                                 <span>{{ $products->total() }}</span>
                                 entries
                             </p>
+
                             <ul class="pagination m-0 ms-auto">
 
                                 {{ $products->links() }}
@@ -121,4 +135,33 @@
 
         </div>
     </div>
+    @include('admin.pages.data.modals.product-edit')
 </div>
+@push('scripts')
+    <script>
+        window.addEventListener('showProduct', function(e) {
+            $('.editProduct #formShow').find('input').attr('disabled', true);
+            $('.editProduct #formShow').find('.btnDisabled').attr('disabled', true);
+            $('.editProduct h5').html("Show data product")
+            $('.editProduct').modal('show');
+        })
+        window.addEventListener('editproduct', function(event) {
+            // alert(event.detail.id);
+            $('.editProduct').find('span').html('');
+            $('.editProduct').modal('show');
+        });
+        window.addEventListener('CloseEditCountryModal', (e) => {
+            $('.editProduct').modal('hide')
+        })
+
+        $(function() {
+            let btnClose = $("button.button-close").on('click', function() {
+                $(this).click(() => {
+                    $('.editProduct').modal('hide')
+
+                })
+            })
+
+        })
+    </script>
+@endpush
