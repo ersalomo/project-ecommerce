@@ -20,7 +20,7 @@ return new class extends Migration
             $table->integer('price');
             $table->string('image');
             $table->string('description');
-            $table->foreign('category_id')->references("category_id")->on('categories')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('category_id')->references("category_id")->on('Categories')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
     }
