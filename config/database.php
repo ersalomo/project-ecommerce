@@ -17,8 +17,8 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'pqsql'),
-    // 'default' => env('DB_CONNECTION', 'mysql'),
+    // 'default' => env('DB_CONNECTION', 'pqsql'),
+    'default' => env('DB_CONNECTION', 'mysql'),
 
     /*
     |--------------------------------------------------------------------------
