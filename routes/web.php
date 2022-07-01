@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HomeController;
+use App\Http\Controllers\homeController;
 use App\Http\Controllers\detailController;
 use App\Http\Controllers\cartController;
 use App\Http\Controllers\authController;
