@@ -2,12 +2,10 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
 use App\Models\Product;
 
-use Faker\Factory as Faker;
+use Faker\Factory;
 
 class productsSeed extends Seeder
 {
@@ -18,7 +16,7 @@ class productsSeed extends Seeder
      */
     public function run()
     {
-        $faker = Faker::create();
+        $faker = Factory::create();
         for ($i = 1; $i <= 100; $i++) {
             Product::create([
                 'category_id' => $faker->numberBetween(1, 6),
