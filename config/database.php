@@ -4,6 +4,9 @@ use Illuminate\Support\Str;
 
 return [
     $myHeroku = parse_url(env('DATABASE_URL', 'postgres://mhrtzexuygqbto:17e4d5b352859adb5091a2afc3c640f20a7f850727c80202d84bece6f5206817@ec2-34-239-241-121.compute-1.amazonaws.com:5432/d73hb4i63vdd0j')),
+
+    //new
+    //$DATABASE_URL = parse_url('DATABASE_URL'),
     /*
     |--------------------------------------------------------------------------
     | Default Database Connection Name
@@ -15,7 +18,8 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'mysql'),
+    'default' => env('DB_CONNECTION', 'pqsql'),
+    // 'default' => env('DB_CONNECTION', 'mysql'),
 
     /*
     |--------------------------------------------------------------------------
@@ -66,10 +70,12 @@ return [
         'pgsql' => [
             'driver' => 'pgsql',
             'url' => env('DATABASE_URL'),
+
             //NEW
             'host' => $myHeroku['host'],
             'port' => $myHeroku['port'],
             'database' => substr($myHeroku['path'], 1),
+            // 'database' => ltrim($DATABASE_URL["path"], "/"),
             'username' => $myHeroku['user'],
             'password' => $heroku['pass'],
             // 'host' => env('DB_HOST', '127.0.0.1'),
