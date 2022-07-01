@@ -77,7 +77,7 @@ return [
             'database' => substr($myHeroku['path'], 1),
             // 'database' => ltrim($DATABASE_URL["path"], "/"),
             'username' => $myHeroku['user'],
-            'password' => $heroku['pass'],
+            'password' => $myHeroku['pass'],
             // 'host' => env('DB_HOST', '127.0.0.1'),
             // 'port' => env('DB_PORT', '5432'),
             // 'database' => env('DB_DATABASE', 'forge'),
