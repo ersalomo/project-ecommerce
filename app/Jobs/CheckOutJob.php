@@ -34,8 +34,8 @@ class CheckOutJob implements ShouldQueue
      */
     public function handle()
     {
-        $user = $this->user;
         // Mail::send('product-send-email', $this->data, function ($message) use ($user) {
+        $user = $this->user;
         Mail::send('product-send-email', $this->data, function ($message) use ($user) {
             $message->from("noreply@example.com", "Ersalomo Str");
             $message->to($this->user->email, $this->user->name)
