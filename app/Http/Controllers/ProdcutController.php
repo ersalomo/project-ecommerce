@@ -18,18 +18,17 @@ class ProdcutController extends Controller
             if ($request->file('gambar')) {
 
                 $fileName = time() . $request->file('gambar')->getClientOriginalName();
-                $request->file('gambar')->move(public_path('image/products'), $fileName);
+                $request->file('gambar')->move(public_path('image/products/'), $fileName);
                 $product = Product::find($id)->update([
                     'image' => $fileName,
                     'updated_at' => Carbon::now(),
                 ]);
-                return back()->with('success', 'Gambar berhasil diupdate');
+                return back()->with('success', 'Gambar berhasil ditambah');
             }
-            dd('dsno if');
             // else {
             // }
         } catch (\Exception $e) {
-            return back()->with('fail', 'gambar tidak dapat diupdate');
+            return redirect()->with('fail', 'gambar tidak dapat ditambah');
             // return response()->json([
             //     'error' => 404,
             //     'message' => $e->getMessage(),

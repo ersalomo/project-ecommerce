@@ -6,7 +6,9 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Products</h3>
+                            <h2 class="card-title mx-auto fs-2">Products</h2>
+                            <button class="btn btn-primary btn card-title" wire:click="openModalAdd()">Tambah
+                                Data</button>
                         </div>
                         @if (Session::has('success'))
                             <div class="alert alert-info mx-auto col-3" role="alert">
@@ -17,6 +19,7 @@
                                 {{ Session::get('fail') }}
                             </span>
                         @endif
+
                         <div class="card-body border-bottom py-3">
                             <div class="d-flex">
                                 <div class="text-muted">
@@ -24,9 +27,16 @@
                                     <div class="mx-2 d-inline-block">
                                         <select wire:model="paginator" class="form-control form-control-sm"
                                             id="">
-                                            @for ($i = 0; $i <= 50; $i += 5)
-                                                <option value="{{ $i }}">{{ $i }}</option>
-                                            @endfor
+                                            @php
+                                                $total = $products->count();
+                                            @endphp
+                                            @if ($total <= 0)
+                                                <option value="{{ $total }}">{{ $total }}</option>
+                                            @else
+                                                @for ($i = 0; $i <= 50; $i += 5)
+                                                    <option value="{{ $i }}">{{ $i }}</option>
+                                                @endfor
+                                            @endif
                                         </select>
 
                                     </div>
@@ -59,6 +69,7 @@
                                         </th>
                                         <th>Nama Product</th>
                                         <th>Category</th>
+                                        <th>Image</th>
                                         <th>Price</th>
                                         <th>Desc</th>
                                         <th>Created_at</th>
@@ -80,10 +91,22 @@
                                                 {{-- <span class="flag flag-country-pl"></span> --}}
                                                 {{ $product->getCategoryName->category_name }}
                                             </td>
+                                            <td>
+                                                <span class="d-inline-block text-truncate xxx" data-toggle="tooltip"
+                                                    style="max-width: 100px;"
+                                                    title='<img src="{{ asset('image/products/1656744385hp.jpg') }}" /> '>
+                                                    {{ __('show image...') }}
+                                                </span>
+                                            </td>
                                             <td>Rp.
                                                 {{ number_format($product->price, 3) }}
                                             </td>
                                             <td>
+                                                <span class="d-inline-block text-truncate " data-bs-toggle="tooltip"
+                                                    data-bs-placement="top" title=" {{ $product->description }}"
+                                                    style="max-width: 100px;">
+                                                    {{ $product->description }}
+                                                </span>
 
                                             </td>
                                             <td>
@@ -137,35 +160,43 @@
             </div>
 
         </div>
+        @include('admin.pages.data.modals.add-product')
     </div>
     @include('admin.pages.data.modals.product-edit')
-</div>
-@push('scripts')
-    <script>
-        window.addEventListener('showProduct', function(e) {
-            $('.editProduct #formShow').find('input').attr('disabled', true);
-            $('.editProduct #formShow').find('.btnDisabled').attr('disabled', true);
-            $('form#uploadImage').find('.btnDisabled').attr('disabled', true);
-            $('.editProduct h5').html("Show data product")
-            $('.editProduct').modal('show');
-        })
-        window.addEventListener('editproduct', function(event) {
-            // alert(event.detail.id);
-            $('.editProduct').find('span').html('');
-            $('.editProduct').modal('show');
-        });
-        window.addEventListener('CloseEditCountryModal', (e) => {
-            $('.editProduct').modal('hide')
-        })
-
-        $(function() {
-            let btnClose = $("button.button-close").on('click', function() {
-                $(this).click(() => {
-                    $('.editProduct').modal('hide')
-
-                })
+    @push('scripts')
+        <script>
+            window.addEventListener('openModalAdd', (e) => {
+                $('.addProduct').find('span').html('')
+                $('.addProduct').modal('show');
             })
+            window.addEventListener('showProduct', function(e) {
+                $('.editProduct #formShow').find('input').attr('disabled', true);
+                $('.editProduct #formShow').find('.btnDisabled').attr('disabled', true);
+                $('form#uploadImage').find('.btnDisabled').attr('disabled', true);
+                $('.editProduct h5').html("Show data product")
+                $('.editProduct').modal('show');
+            })
+            window.addEventListener('editproduct', function(event) {
+                // alert(event.detail.id);
+                $('.editProduct').find('span').html('');
+                $('.editProduct').modal('show');
+            });
+            window.addEventListener('CloseEditCountryModal', (e) => {
+                $('.editProduct').modal('hide')
+                $('.addProduct').modal('hide');
 
-        })
-    </script>
-@endpush
+            })
+            $(function() {
+                $("button.button-close").on('click', function() {
+                    $(this).click(() => {
+                        $('.editProduct').modal('hide')
+                        $('.addProduct').modal('hide')
+
+                    })
+                })
+                $('[data-toggle="tooltip"]').tooltip()
+
+            })
+        </script>
+    @endpush
+    {{-- $ git commit -m "melakukan tambah/edit gambar  product" --}}

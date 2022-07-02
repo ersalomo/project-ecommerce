@@ -7,6 +7,7 @@ use App\Models\Product;
 use Livewire\WithPagination;
 use App\Models\Category;
 use Livewire\WithFileUploads;
+use Carbon\Carbon;
 
 class ListProducts extends Component
 {
@@ -16,6 +17,7 @@ class ListProducts extends Component
     public $product_id, $nm_product, $price_product, $image_product, $desc_product, $ct_product;
 
     public $image;
+    public $cat_id;
 
     public function mount()
     {
@@ -28,7 +30,7 @@ class ListProducts extends Component
             $this->paginator = 1;
         }
 
-        $products = Product::orderBy('id')->paginate($this->paginator);
+        $products = Product::orderBy('id', 'desc')->paginate($this->paginator);
         $categories = Category::all();
         return view('livewire.data.list-products', compact('products', 'categories'));
     }
@@ -43,6 +45,41 @@ class ListProducts extends Component
         $this->desc_product  = $product->description;
         $this->ct_product    = $product->created_at;
         $this->dispatchBrowserEvent('showProduct');
+    }
+    function openModalAdd()
+    {
+        $this->dispatchBrowserEvent('openModalAdd');
+    }
+    function addProduct()
+    {
+        $this->validate([
+            'nm_product' => 'required',
+            'cat_id' => 'required',
+            'price_product' => 'required|numeric',
+            'image_product' => '',
+            'desc_product' => 'required'
+        ], [
+            'nm_product.required' => 'Masukkan nama product',
+            'cat_id.required' => 'Pilih nama category product',
+            'price_product.required' => 'Masukkan harga product',
+            'image_product.required' => '',
+            'desc_product.required' => 'Masukkan description product',
+        ]);
+
+        $product = Product::create([
+            'category_id' => $this->cat_id,
+            'product_name' => $this->nm_product,
+            'price' => $this->price_product,
+            'image' => '',
+            'description' => $this->desc_product,
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+        ]);
+
+        if ($product) {
+            $this->clearColumn();
+            $this->dispatchBrowserEvent('CloseEditCountryModal');
+        }
     }
     public function editProduct($id)
     {
@@ -82,6 +119,14 @@ class ListProducts extends Component
             $this->dispatchBrowserEvent('CloseEditCountryModal');
             // $this->checkedCountry = [];
         }
+    }
+    private function clearColumn()
+    {
+        $this->cat_id = '';
+        $this->nm_product = '';
+        $this->price_product = '';
+        $this->image_product = '';
+        $this->desc_product = '';
     }
     public function delete($id)
     {

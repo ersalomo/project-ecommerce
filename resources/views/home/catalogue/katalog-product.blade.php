@@ -13,7 +13,8 @@
                                 {{ $product->product_name }}
                             </div>
                             <!-- Product image-->
-                            {{-- <img class="card-img-top" src="{{ $product->image }}" alt="..." /> --}}
+                            <img class="card-img-top" src="{{ asset('image/products/' . $product->image) }}"
+                                alt="..." />
                             <!-- Product details-->
                             <div class="card-body p-4">
                                 <div class="text-center">

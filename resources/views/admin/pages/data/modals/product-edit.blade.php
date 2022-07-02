@@ -1,49 +1,44 @@
 <div class="modal fade editProduct" wire:ignore.self tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
     aria-hidden="true" data-keyboard="false" data-backdrop="static">
-
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Edit Data Product </h5>
-                <button type="button" class="button-close">X{{-- <span aria-hidden="true">&times;</span> --}}
-                </button>
+                <button type="button" class="button-close btn btn-outline-danger">XX</button>
             </div>
             <div class="modal-body">
-                {{-- form  upload gambar --}}
-                {{-- <div class="col-auto d-md-flex">
-                    <!--connecting to profile.blade -->
-                    <input type="file" name="file" id="changeAuthorPictureFile" class="d-none"
-                        onchange="this.dispatchEvent(new InputEvent
-    ('input'))">
-                    <a href="#" class="btn btn-primary"
-                    onclick="event.preventDefault();document.getElementById('changeAuthorPictureFile'). click();">
-                    Change Picture
-                </a>
-            </div> --}}
                 <div class="row">
+
                     <form method="POST" action="{{ route('admin.updateImage') }}" id="uploadImage"
                         enctype="multipart/form-data">
                         @csrf
-                        <input type="text" name="product_id" wire:model="product_id" value="{{ $product_id }}">
-                        <div class="form-group" style="padding-left:25%;">
-                            <img src="{{ asset('image/products/' . $image_product) }}" class="img-fluid"
-                                style="width:50%; height:50%;" wire:model="image_product" alt="image product"
-                                srcset="">
-                            {{-- @if ($image)
-                                <img src="{{ $image->temporaryUrl() }}" style="width:50%; height:50%;">
-                            @endif --}}
-                            <input type="file" name="gambar"class="form-control-sm my-1 pr-10 btnDisabled">
-                            <div wire:loading wire:target="image">Uploading...</div>
-                            @error('image')
-                                <span class="error">
-                                    {{ $message }}
-                                </span>
-                            @enderror
-                            <button type="submit" class="btn btn-info btnDisabled">change photo</button>
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="form-group display-inline">
+                                    <input type="hidden" name="product_id" wire:model="product_id"
+                                        value="{{ $product_id }}">
+                                    <img src="{{ asset('image/products/' . $image_product) }}" alt="">
+                                    {{-- wire:model="image_product" --}}
+                                    <div wire:loading wire:target="image">Uploading...</div>
+                                    @error('image')
+                                        <span class="error">
+                                            {{ $message }}
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="row" style="margin-top:25%">
+                                    <input type="file" name="gambar"class="form-control-sm my-1 pr-10 btnDisabled">
+                                    <button type="submit" class="btn btn-info btnDisabled">change photo</button>
+                                </div>
+                            </div>
+
                         </div>
                     </form>
 
                 </div>
+
                 <form wire:submit.prevent="update" id="formShow">
                     <input type="hidden" name="product_id" wire:model="product_id" value="{{ $product_id }}">
                     <div class="form-group">
@@ -87,7 +82,6 @@
                             Changes</button>
                     </div>
                 </form>
-
             </div>
         </div>
     </div>
