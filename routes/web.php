@@ -18,6 +18,7 @@ Route::get('/', function (homeController $controller) {
 - 2.goto Authenticate for auth
 -
 */
+
 Route::get("home-page", [homeController::class, 'home'])->name("home-page");
 Route::middleware(['guest:web'])->group(function () {
     /*authController*/
