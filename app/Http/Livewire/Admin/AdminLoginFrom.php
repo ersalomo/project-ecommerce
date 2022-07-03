@@ -47,8 +47,7 @@ class AdminLoginFrom extends Component
                 session()->flash('failed', 'Invalid username,email or password');
             }
         } else {
-            dd("else");
-            session()->flash('failed', 'Error like you');
+            session()->flash('failed', 'Please login and ensure your account is correct.');
         }
     }
     public function render()
