@@ -8,8 +8,8 @@ use App\Http\Controllers\authController;
 use App\Http\Controllers\checkOutInsertTransactionController as checkOut;
 
 
-Route::get('/', function (homeController $controller) {
-    return $controller->home();
+Route::get('/', function () {
+    return redirect()->route('home-page');
 });
 
 /*
