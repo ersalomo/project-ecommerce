@@ -18,9 +18,9 @@ Route::get('/', function (homeController $controller) {
 - 2.goto Authenticate for auth
 -
 */
+Route::get("home-page", [homeController::class, 'home'])->name("home-page");
 Route::middleware(['guest:web'])->group(function () {
     /*authController*/
-    Route::get("homepage", [homeController::class, 'home'])->name("home-page");
     Route::get('login', [authController::class, 'pageLogin'])->name('login');
     Route::get('register', [authController::class, 'pageRegister'])->name('register');
 });
