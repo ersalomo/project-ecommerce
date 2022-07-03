@@ -10,7 +10,7 @@ use Illuminate\Pagination\Paginator;
 
 class homeController extends Controller
 {
-    function home(Request $request)
+    function home()
     {
         // $products = Product::all();
         $products = Product::paginate(12);

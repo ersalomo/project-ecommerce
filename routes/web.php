@@ -7,7 +7,10 @@ use App\Http\Controllers\cartController;
 use App\Http\Controllers\authController;
 use App\Http\Controllers\checkOutInsertTransactionController as checkOut;
 
-Route::get("/", [homeController::class, 'home'])->name("home-page");
+
+Route::get('/', function (homeController $controller) {
+    return $controller->home();
+});
 
 /*
 - how i can be middleware for
@@ -15,16 +18,14 @@ Route::get("/", [homeController::class, 'home'])->name("home-page");
 - 2.goto Authenticate for auth
 -
 */
-
-
-/*before get home*/
 Route::middleware(['guest:web'])->group(function () {
     /*authController*/
+    Route::get("homepage", [homeController::class, 'home'])->name("home-page");
     Route::get('login', [authController::class, 'pageLogin'])->name('login');
     Route::get('register', [authController::class, 'pageRegister'])->name('register');
 });
 
-Route::get("home-page/", [homeController::class, 'home'])->name("home-page");
+
 
 /*after got home*/
 Route::middleware(['auth:web'])->group(function () {
@@ -41,13 +42,6 @@ Route::middleware(['auth:web'])->group(function () {
     Route::view('user-profile', 'user.user-profile')->name('user-profile');
 });
 
-// I'm just thinking better of
-Route::prefix('/')->name("")->group(function () {
-    // middleware of guest puts over here
-
-
-    // middleware of auth puts over here
-});
 
 
 // Route::get('/categories', function () {
