@@ -25,7 +25,7 @@ class RegisterController extends Component
                 'username' => 'required|min:8|max:9',
                 // 'username' => 'required|min:8|exists:users,username',
                 'password' => 'required|min:8|max:20',
-                'repeated_password' => 'same:password',
+                'repeated_password' => 'same:password|min:8',
                 'address' => 'required|min:5',
 
             ],
@@ -39,10 +39,12 @@ class RegisterController extends Component
                 'username.min' => 'Username must be at least 8 characters',
                 'username.max' => 'Username max 9 characters',
                 // 'username.exists' => 'The username already exists',
+                'address.required' => 'Enter a valid address',
                 'password.required' => 'Enter your password',
                 'password.min' => 'Password must be at least 8 characters',
-                'address.required' => 'Enter a valid address',
-                'repeated_password' => 'Must be same with password'
+                'password.max' => 'Password cannot more than 20 characters',
+                'repeated_password.same' => 'Must match with password',
+                'repeated_password.min' => 'Fill this form password'
 
             ]
         );

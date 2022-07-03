@@ -6,7 +6,6 @@ use App\Http\Controllers\ProdcutController;
 
 
 Route::prefix('admin')->name("admin.")->group(function () {
-
     Route::middleware(["guest:admin"])->group(function () {
         Route::view('login', 'admin/pages/auth/login')->name("login");
     });

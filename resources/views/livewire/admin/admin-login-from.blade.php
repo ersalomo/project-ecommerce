@@ -69,8 +69,8 @@
                 <div class="row">
                     <div class="col"><a href="#" class="btn btn-white w-100">
                             <!-- Download SVG icon from http://tabler-icons.io/i/brand-github -->
-                            <svg xmlns="http://www.w3.org/2000/svg" class="icon text-github" width="24" height="24"
-                                viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon text-github" width="24"
+                                height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
                                 stroke-linecap="round" stroke-linejoin="round">
                                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                                 <path
@@ -80,8 +80,8 @@
                         </a></div>
                     <div class="col"><a href="#" class="btn btn-white w-100">
                             <!-- Download SVG icon from http://tabler-icons.io/i/brand-twitter -->
-                            <svg xmlns="http://www.w3.org/2000/svg" class="icon text-twitter" width="24" height="24"
-                                viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon text-twitter" width="24"
+                                height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
                                 stroke-linecap="round" stroke-linejoin="round">
                                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                                 <path
@@ -97,7 +97,6 @@
         crossorigin="anonymous"></script>
     <script>
         $(function() {
-
             $('.link-secondary.show-password').click(function(e) {
                 e.preventDefault();
                 if ($('input#showPassword').attr('type') == 'password') {
@@ -106,7 +105,6 @@
                     $('input#showPassword').attr('type', 'password')
                 }
             })
-
         })
     </script>
 
