@@ -24,9 +24,6 @@ Route::middleware(['guest:web'])->group(function () {
     Route::get('login', [authController::class, 'pageLogin'])->name('login');
     Route::get('register', [authController::class, 'pageRegister'])->name('register');
 });
-
-
-
 /*after got home*/
 Route::middleware(['auth:web'])->group(function () {
     Route::post("/logout", [homeController::class, 'logout'])->name("logout");
