@@ -7,8 +7,8 @@
                 <button type="button" class="button-close btn btn-outline-danger">X</button>
             </div>
             <div class="modal-body">
-                <form wire:submit.prevent="addProduct" id="formAdd">
-
+                <form wire:submit.prevent="addProduct" method="POST" id="formAdd">
+                    @csrf
                     <div class="form-group">
                         <label for="">Nama Product</label>
                         <input type="text" class="form-control" wire:model="nm_product" value="">
@@ -17,6 +17,7 @@
                             @enderror
                         </span>
                     </div>
+
                     <div class="form-group">
                         <label for="categoty" class="form-control py-1 my-1">Category
                             <select id="categoty" wire:model="cat_id" class="form-control mt-1">
@@ -54,7 +55,7 @@
                         <button type="button" class="btn btn-danger btn-md button-close"
                             data-dismiss="modal">Close</button>
                         <button class="btn btn-primary btn-md" type="submit">Save
-                            Changes</button>
+                        </button>
                     </div>
                 </form>
 
@@ -62,14 +63,3 @@
         </div>
     </div>
 </div>
-<!-- Block level -->
-{{-- <div class="row">
-    <div class="col-2 text-truncate">
-      This text is quite long, and will be truncated once displayed.
-    </div>
-  </div>
-
-  <!-- Inline level -->
-  <span class="d-inline-block text-truncate" style="max-width: 150px;">
-    This text is quite long, and will be truncated once displayed.
-  </span> --}}

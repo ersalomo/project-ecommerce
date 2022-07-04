@@ -13,6 +13,8 @@
     <link href="bootstrap/dist/css/tabler-vendors.min.css" rel="stylesheet" />
     <link href="bootstrap/dist/css/demo.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="{{ asset('bootstrap/css/font-awesome.min.css') }}">
+    <link href="bootstrap/dist/libs/iJabo/ijabo.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="{{ asset('bootstrap/dist/libs/ijaboCroptool/ijaboCroptool.min.css') }}">
     @stack('stylesheets')
     @livewireStyles
 </head>
@@ -29,11 +31,12 @@
 
 
     <script src="{{ asset('bootstrap/dist/libs/jQuery/jquery.js') }}"></script>
-    <script src="{{ asset('bootstrap/dist/libs/iJabo/ijabo.min.js') }}"></script>
     <script src="{{ asset('bootstrap/dist/libs/apexcharts/dist/apexcharts.min.js') }}"></script>
-    <!-- Tabler Core -->
     <script src="{{ asset('bootstrap/dist/js/tabler.min.js') }}"></script>
     <script src="{{ asset('bootstrap/dist/js/demo.min.js') }}"></script>
+    <script src="{{ asset('bootstrap/dist/libs/iJabo/ijabo.min.js') }}"></script>
+    <script src="{{ asset('bootstrap/dist/libs/ijaboCroptool/ijaboCropTool.min.js') }}"></script>
+    <script src="{{ asset('bootstrap/dist/libs/ijaboViewer/jquery.ijaboViewer.min.js') }}"></script>
     @stack('scripts')
     @livewireScripts
 </body>

@@ -8,6 +8,7 @@ use Carbon\Carbon;
 
 class ProdcutController extends Controller
 {
+
     public function changeProfilePicture(Request $request)
     {
         try {
@@ -16,10 +17,9 @@ class ProdcutController extends Controller
                 'gambar' => 'file|image|mimes:png,jpg,jpeg'
             ]);
             if ($request->file('gambar')) {
-
                 $fileName = time() . $request->file('gambar')->getClientOriginalName();
                 $request->file('gambar')->move(public_path('image/products/'), $fileName);
-                $product = Product::find($id)->update([
+                Product::find($id)->update([
                     'image' => $fileName,
                     'updated_at' => Carbon::now(),
                 ]);

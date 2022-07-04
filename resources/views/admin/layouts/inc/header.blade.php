@@ -1,7 +1,7 @@
 <header class="navbar navbar-expand-md navbar-light d-print-none">
     <div class="container-xl">
         <h1 class="navbar-brand navbar-brand-autodark d-none-navbar-horizontal pe-0 pe-md-3">
-            <a href="/#/" disabled>
+            <a>
                 <img src="{{ asset('bootstrap/asset/admin.png') }}" width="110" height="32" alt="Admin"
                     class="navbar-brand-image">
             </a>
@@ -15,7 +15,6 @@
                             {{-- home --}}
                             <a class="nav-link" href="{{ route('admin.home-admin') }}">
                                 <span class="nav-link-icon d-md-none d-lg-inline-block">
-                                    <!-- Download SVG icon from http://tabler-icons.io/i/home -->
                                     <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
                                         viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
                                         stroke-linecap="round" stroke-linejoin="round">
@@ -51,10 +50,6 @@
                             <div class="dropdown-menu">
                                 <div class="dropdown-menu-columns">
                                     <div class="dropdown-menu-column">
-
-                                        <a class="dropdown-item" href="{{ route('admin.list-table') }}">
-                                            Products
-                                        </a>
                                         <a class="dropdown-item" href="{{ route('admin.list-products') }}">
                                             Products
                                         </a>

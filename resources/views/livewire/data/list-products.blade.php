@@ -92,11 +92,8 @@
                                                 {{ $product->getCategoryName->category_name }}
                                             </td>
                                             <td>
-                                                <span class="d-inline-block text-truncate xxx" data-toggle="tooltip"
-                                                    style="max-width: 100px;"
-                                                    title='<img src="{{ asset('image/products/1656744385hp.jpg') }}" /> '>
-                                                    {{ __('show image...') }}
-                                                </span>
+                                                <img src="{{ asset('image/products/' . $product->image) }}"
+                                                    alt="">
                                             </td>
                                             <td>Rp.
                                                 {{ number_format($product->price, 3) }}
@@ -150,7 +147,6 @@
                             </p>
 
                             <ul class="pagination m-0 ms-auto">
-
                                 {{ $products->links() }}
 
                             </ul>
