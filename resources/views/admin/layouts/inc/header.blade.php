@@ -81,21 +81,21 @@
                                             d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z" />
                                     </svg>
                                 </span>
-                                <span class="nav-link-title">
+                                <span class="nav-link-title disabled">
                                     Others
                                 </span>
                             </a>
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" href="./activity.html">
+                                <a class="dropdown-item">
                                     Activity
                                 </a>
-                                <a class="dropdown-item" href="./gallery.html">
+                                <a class="dropdown-item">
                                     Gallery
                                 </a>
-                                <a class="dropdown-item" href="./invoice.html">
+                                <a class="dropdown-item">
                                     Invoice
                                 </a>
-                                <a class="dropdown-item" href="./search-results.html">
+                                <a class="dropdown-item">
                                     Search results
                                 </a>
 
@@ -117,11 +117,11 @@
                     </div>
                 </a>
                 <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                    <a href="#" class="dropdown-item">Set status</a>
-                    <a href="#" class="dropdown-item">Profile & account</a>
-                    <a href="#" class="dropdown-item">Feedback</a>
+                    <a class="dropdown-item">Set status</a>
+                    <a class="dropdown-item">Profile & account</a>
+                    <a class="dropdown-item">Feedback</a>
                     <div class="dropdown-divider"></div>
-                    <a href="#" class="dropdown-item">Settings</a>
+                    <a class="dropdown-item">Settings</a>
                     <form action="{{ route('admin.logout') }}" method="post" class="dropdown-item">
                         @csrf
                         <input type="submit" class=" btn btn-danger btn-md" value="Logout" />

@@ -56,9 +56,16 @@ class RegisterController extends Component
             'password' => Hash::make($this->password),
             'address' => $this->address,
         ]);
-
+        $this->showToastr('Berhasil melakukan registrasi', 'info');
         $this->clearText();
         return redirect(route('login'));
+    }
+    public function showToastr($message, $type)
+    {
+        return $this->dispatchBrowserEvent('showToastr', [
+            'type' => $type,
+            'message' => $message
+        ]);
     }
     private function clearText()
     {

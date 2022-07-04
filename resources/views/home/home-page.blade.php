@@ -8,10 +8,13 @@
     <meta name="author" content="" />
     <title>@yield('title')</title>
     <link rel="icon" type="image/x-icon" href="https://www.flaticon.com/free-icons/shopping-cart">
+    <link href="bootstrap/dist/libs/iJabo/ijabo.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="{{ asset('bootstrap/dist/libs/ijaboCroptool/ijaboCroptool.min.css') }}">
     <!-- Bootstrap icons-->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
     </script>
+
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
     {{-- <link rel="stylesheet" href="{{ asset('bootstrap/js/bootstrap.min.css') }}"> --}}
     {{-- <link rel="stylesheet" href="{{ asset('bootstrap/css/font-awesome.css') }}"> --}}
@@ -44,6 +47,29 @@
     <!-- Footer-->
     @include('home/inc/footer')
     @livewireScripts
+    <script src="{{ asset('bootstrap/dist/libs/jQuery/jquery.js') }}"></script>
+    <script src="{{ asset('bootstrap/dist/libs/iJabo/ijabo.min.js') }}"></script>
+    <script src="{{ asset('bootstrap/dist/libs/ijaboCroptool/ijaboCropTool.min.js') }}"></script>
+    <script src="{{ asset('bootstrap/dist/libs/ijaboViewer/jquery.ijaboViewer.min.js') }}"></script>
+    <!-- Tabler Core -->
+    <script src="bootstrap/dist/js/tabler.min.js"></script>
+    @stack('scripts')
+    <script>
+        window.addEventListener("showToastr", function(event) {
+            toastr.remove();
+            if (event.detail.type === 'info') {
+                toastr.info(event.detail.message)
+            } else if (event.detail.type === 'success') {
+                toastr.success(event.detail.message)
+            } else if (event.detail.type === 'error') {
+                toastr.error(event.detail.message)
+            } else if (event.detail.type === 'warning') {
+                toastr.warning(event.detail.message)
+            } else {
+                return false
+            }
+        })
+    </script>
 </body>
 
 </html>

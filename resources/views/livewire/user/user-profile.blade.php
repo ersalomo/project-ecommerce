@@ -3,15 +3,21 @@
         <div class="col-xl-4">
             <!-- Profile picture card-->
             <div class="card mb-4 mb-xl-0">
+
                 <div class="card-header">Profile Picture</div>
                 <div class="card-body text-center">
                     <!-- Profile picture image-->
                     <img class="img-account-profile rounded-circle mb-2"
-                        src="http://bootdey.com/img/Content/avatar/avatar1.png" alt="">
+                        src="{{ asset('image/products/' . $user->picture) }}" alt="">
                     <!-- Profile picture help block-->
                     <div class="small font-italic text-muted mb-4">JPG or PNG no larger than 5 MB</div>
-                    <!-- Profile picture upload button-->
-                    <button class="btn btn-primary" type="button">Upload new image</button>
+                    <input type="file" name="file" id="changeAuthorPictureFile" class="d-none"
+                        onchange="this.dispatchEvent(new InputEvent
+('input'))">
+                    <a href="#" class="btn btn-primary"
+                        onclick="event.preventDefault();document.getElementById('changeAuthorPictureFile'). click();">
+                        Change Picture
+                    </a>
                 </div>
             </div>
         </div>
@@ -20,7 +26,7 @@
             <div class="card mb-4">
                 <div class="card-header">Account Details</div>
                 <div class="card-body">
-                    <form>
+                    <form action="uploadProfile">
                         <!-- Form Group (username)-->
                         <div class="mb-3">
                             <label class="small mb-1" for="inputUsername">Username (how your name will appear to
@@ -87,3 +93,24 @@
         </div>
     </div>
 </div>
+@push('scripts')
+    <script>
+        $("#changeAuthorPictureFile").ijaboCropTool({
+            preview: '',
+            setRatio: 1,
+            allowedExtensions: ['jpg', 'jpeg', 'png'],
+            buttonsText: ['CROP', 'QUIT'],
+            buttonsColor: ['#30bf7d', '#ee5155', -15],
+            processUrl: "{{ route('changeImage') }}",
+            withCSRF: ['_token', '{{ csrf_token() }}'],
+            onSuccess: function(message, element, status) {
+                Livewire.emit('UpdaProfileUser');
+                // Livewire.emit('UpdateTopHeader');
+                toastr.success(message)
+            },
+            onError: function(message, element, status) {
+                toastr.error(message)
+            }
+        });
+    </script>
+@endpush

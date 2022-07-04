@@ -9,6 +9,8 @@
     <link href="bootstrap/dist/css/tabler-flags.min.css" rel="stylesheet" />
     <link href="bootstrap/dist/css/tabler-payments.min.css" rel="stylesheet" />
     <link href="bootstrap/dist/css/tabler-vendors.min.css" rel="stylesheet" />
+    <link href="bootstrap/dist/libs/iJabo/ijabo.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="{{ asset('bootstrap/dist/libs/ijaboCroptool/ijaboCroptool.min.css') }}">
     <base href="/">
     @stack('stylesheets')
     @livewireStyles
@@ -23,6 +25,29 @@
     @stack('scripts')
     @livewireScripts
     <script src="{{ asset('bootstrap/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('bootstrap/dist/libs/jQuery/jquery.js') }}"></script>
+    <script src="{{ asset('bootstrap/dist/libs/iJabo/ijabo.min.js') }}"></script>
+    <script src="{{ asset('bootstrap/dist/libs/ijaboCroptool/ijaboCropTool.min.js') }}"></script>
+    <script src="{{ asset('bootstrap/dist/libs/ijaboViewer/jquery.ijaboViewer.min.js') }}"></script>
+    <!-- Tabler Core -->
+    <script src="bootstrap/dist/js/tabler.min.js"></script>
+    @stack('scripts')
+    <script>
+        window.addEventListener("showToastr", function(event) {
+            toastr.remove();
+            if (event.detail.type === 'info') {
+                toastr.info(event.detail.message)
+            } else if (event.detail.type === 'success') {
+                toastr.success(event.detail.message)
+            } else if (event.detail.type === 'error') {
+                toastr.error(event.detail.message)
+            } else if (event.detail.type === 'warning') {
+                toastr.warning(event.detail.message)
+            } else {
+                return false
+            }
+        })
+    </script>
 </body>
 
 </html>

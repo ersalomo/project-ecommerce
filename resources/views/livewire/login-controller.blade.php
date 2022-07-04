@@ -8,7 +8,7 @@
                         <div class="login-wrap py-3 px-2 p-md-7 card m-auto" style="min-width:430px">
                             <div class="d-flex">
                                 <div class="w-100">
-                                    <h2 class="mb-2 text-center">Login</h2>
+                                    <h2 class="mb-2 text-center">Login User</h2>
                                 </div>
                             </div>
                             <form wire:submit.prevent="loginHandler()" class="signin-form form-fieldset">
