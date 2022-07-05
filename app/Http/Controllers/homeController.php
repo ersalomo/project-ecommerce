@@ -13,7 +13,7 @@ class homeController extends Controller
     function home()
     {
         // $products = Product::all();
-        $products = Product::paginate(12);
+        $products = Product::paginate(8);
         Paginator::useBootstrap();
         return view('home.catalogue.katalog-product', compact('products'));
     }

@@ -30,8 +30,8 @@
                         <div class="card-body" style="">
                             <div class="row ">
                                 <div class="col-4" style="background-color:;">
-                                    <img src=" {{ $cart->getProducts->image }}" class="img-fluid"
-                                        alt="{{ $cart->getProducts->name }}">
+                                    <img src=" {{ asset('image/products/' . $cart->getProducts->image) }}"
+                                        class="img-fluid" alt="{{ $cart->getProducts->name }}">
                                 </div>
                                 <div class="col-6 offset-1 card shadow-md" style="">
                                     <div class="row mt-1 d-flex flex-row" style="background-color:">

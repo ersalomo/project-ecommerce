@@ -4,20 +4,61 @@
         <div class="container-xl">
             <div class="row row-deck row-cards">
                 <div class="col-12">
+
                     <div class="card">
+
                         <div class="card-header">
                             <h2 class="card-title mx-auto fs-2">Products</h2>
                             <button class="btn btn-primary btn card-title" wire:click="openModalAdd()">Tambah
                                 Data</button>
                         </div>
+
                         @if (Session::has('success'))
+                            <div class="alert alert-important alert-success alert-dismissible" role="alert">
+                                <div class="d-flex">
+                                    <div>
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon alert-icon" width="24"
+                                            height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+                                            fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                            <path d="M5 12l5 5l10 -10"></path>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        {{ Session::get('success') }}
+                                    </div>
+                                </div>
+                                <a class="btn-close btn-close-white" data-bs-dismiss="alert" aria-label="close"></a>
+                            </div>
+                            {{-- @if (Session::has('success'))
                             <div class="alert alert-info mx-auto col-3" role="alert">
                                 {{ Session::get('success') }}
-                            </div>
+                            </div> --}}
                         @elseif (Session::has('fail'))
                             <span class="alert alert-danger mx-auto col-3" role="alert">
                                 {{ Session::get('fail') }}
                             </span>
+                        @endif
+                        @if (Session::has('info'))
+                            <div class="alert alert-important alert-info alert-dismissible" role="alert">
+                                <div class="d-flex">
+                                    <div>
+                                        <!-- Download SVG icon from http://tabler-icons.io/i/info-circle -->
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon alert-icon" width="24"
+                                            height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+                                            fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                            <circle cx="12" cy="12" r="9"></circle>
+                                            <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                                            <polyline points="11 12 12 12 12 16 13 16"></polyline>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        {{ Session::get('info') }}
+                                    </div>
+                                </div>
+                                <a class="btn-close btn-close-white" data-bs-dismiss="alert" aria-label="close"></a>
+                            </div>
                         @endif
 
                         <div class="card-body border-bottom py-3">
@@ -182,6 +223,10 @@
                 $('.addProduct').modal('hide');
 
             })
+            window.addEventListener('addProdcut', (e) => {
+                Livewire.emit('productAdd');
+                alert('adad')
+            })
             $(function() {
                 $("button.button-close").on('click', function() {
                     $(this).click(() => {
@@ -191,6 +236,22 @@
                     })
                 })
                 $('[data-toggle="tooltip"]').tooltip()
+                // $("#addImageProduct").ijaboCropTool({
+                //     preview: '',
+                //     setRatio: 1,
+                //     allowedExtensions: ['jpg', 'jpeg', 'png'],
+                //     buttonsText: ['CROP', 'QUIT'],
+                //     buttonsColor: ['#30bf7d', '#ee5155', -15],
+                //     processUrl: "{{ route('admin.addProduct') }}",
+                //     withCSRF: ['_token', '{{ csrf_token() }}'],
+                //     onSuccess: function(message, element, status) {
+                //         Livewire.emit('productAdd');
+                //         toastr.success(message)
+                //     },
+                //     onError: function(message, element, status) {
+                //         toastr.error(message)
+                //     }
+                // });
 
             })
         </script>

@@ -14,15 +14,15 @@ class ListProducts extends Component
     use WithPagination, WithFileUploads;
     protected $paginationTheme = 'bootstrap';
     public $paginator = 10, $product_id, $nm_product, $price_product, $image_product, $desc_product, $ct_product;
-    public $cat_id;
-    public $gambar;
+    public $cat_id, $img_tmp;
 
-    public function mount()
-    {
-    }
+    protected $listeners = [
+        "productAdd" => '$refresh'
+    ];
 
     public function render()
     {
+
         if ($this->paginator <= 0) {
             session()->flash('success', 'Tidak bisa showing data bernilai 0');
             $this->paginator = 1;
@@ -49,37 +49,30 @@ class ListProducts extends Component
         $this->clearColumn();
         $this->dispatchBrowserEvent('openModalAdd');
     }
+
     function addProduct()
     {
+
         $this->validate([
             'nm_product' => 'required',
             'cat_id' => 'required',
+            // 'img_tmp' => 'mimes:jpeg,jpg,png,gif|max:10000',
             'price_product' => 'required|numeric',
-            'gambar' => 'required|image|mimes:jpg,jpeg,png|max:2048',
             'desc_product' => 'required'
         ], [
             'nm_product.required' => 'Masukkan nama product',
             'cat_id.required' => 'Pilih nama category product',
+            // 'img_tmp.max' => 'Tidak bisa melibihi lebih dari 5 MB',
             'price_product.required' => 'Masukkan harga product',
-            'gambar.required' => 'Masukkan Gambar',
             'desc_product.required' => 'Masukkan description product',
         ]);
-        $cek =  $this->validate()['gambar'] = $this->gambar->store('images');
-        $fileName = '';
-        // if ($this->image) {
-        //     $fileName = $this->image->store('posts');
-        // } else {
-        //     $fileName = null;
-        // }
-        if ($cek) {
-            dd($cek);
-        }
-        dd('no');
+
+
         $product = Product::create([
             'category_id' => $this->cat_id,
             'product_name' => $this->nm_product,
             'price' => $this->price_product,
-            'image' => $fileName,
+            'image' => '',
             'description' => $this->desc_product,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
@@ -92,16 +85,6 @@ class ListProducts extends Component
         } else {
             session()->flash('fail', 'Gagal menambah data product');
         }
-
-        // if ($request->file('gambar')) {
-        //     dd('asda');
-        //     $fileName = time() . $product->id . $request->file('gambar')->getClientOriginalName();
-        //     $request->file('gambar')->move(public_path('image/products/'), $fileName);
-        //     Product::find($product->id)->update([
-        //         'image' => $fileName,
-        //     ]);
-        // }
-
     }
 
     public function editProduct($id)
@@ -154,7 +137,7 @@ class ListProducts extends Component
     public function delete($id)
     {
         Product::find($id)->delete();
-        return back()->with('success', 'Berhasil dihapus');
+        return back()->with('info', 'Berhasil dihapus');
     }
 }
 

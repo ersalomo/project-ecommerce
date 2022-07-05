@@ -62,13 +62,8 @@ class UserProfile extends Component
 
     public function render()
     {
-
         return view('livewire.user.user-profile', [
             'user' => $this->user
         ]);
-    }
-    private static function clearData()
-    {
-        return [];
     }
 }

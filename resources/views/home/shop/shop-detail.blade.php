@@ -8,32 +8,26 @@
                     {{ Session::get('error') }}
                 </div>
             @endif
-            <!--Grid row-->
             <div class="row wow fadeIn">
-                <!--Grid column-->
+
                 <div class="col-md-6 mb-4">
                     <img src="{{ $product->image }}" class="img-fluid" alt="">
                 </div>
-                <!--Grid column-->
-                <!--Grid column-->
+
                 <div class="col-md-6 mb-4">
                     <!--Content-->
                     <div class="p-4">
                         <div class="mb-3">
                             <h4>{{ $product->product_name }}</h4>
                         </div>
-
                         <p class="lead">
                             <span class="mr-1">
                                 <del>Rp. {{ number_format($product->price - 100_000) }}</del>
                             </span>
                             <span>Rp.{{ number_format($product->price) }}</span>
                         </p>
-
                         <p class="lead font-weight-bold text-bold">Description</p>
-
                         <p>{{ $product->description }}</p>
-
                         <form class="d-flex justify-content-left" method="post" action="{{ route('add-card') }}">
                             @csrf
                             <input type="hidden" name="product_id" value="{{ $product->id }}" />
@@ -49,22 +43,11 @@
                             </button>
 
                         </form>
-
                     </div>
-                    <!--Content-->
-
                 </div>
-                <!--Grid column-->
-
             </div>
-            <!--Grid row-->
-
             <hr>
-
-            <!--Grid row-->
             <div class="row d-flex justify-content-center wow fadeIn">
-
-                <!--Grid column-->
                 <div class="col-md-6 text-center">
 
                     <h4 class="my-4 h4">Additional information</h4>
@@ -75,44 +58,26 @@
                         quibusdam officia. Neque quibusdam quas a quis porro? Molestias illo neque eum in laborum.</p>
 
                 </div>
-                <!--Grid column-->
 
             </div>
-            <!--Grid row-->
-
-            <!--Grid row-->
             <div class="row wow fadeIn">
 
-                <!--Grid column-->
                 <div class="col-lg-4 col-md-12 mb-4">
 
-                    <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/11.jpg"
-                        class="img-fluid" alt="">
-
+                    <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/11.jpg" class="img-fluid"
+                        alt="">
                 </div>
-                <!--Grid column-->
-
-                <!--Grid column-->
                 <div class="col-lg-4 col-md-6 mb-4">
-
-                    <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/12.jpg"
-                        class="img-fluid" alt="">
+                    <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/12.jpg" class="img-fluid"
+                        alt="">
 
                 </div>
-                <!--Grid column-->
-
-                <!--Grid column-->
                 <div class="col-lg-4 col-md-6 mb-4">
-
-                    <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/13.jpg"
-                        class="img-fluid" alt="">
+                    <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/13.jpg" class="img-fluid"
+                        alt="">
 
                 </div>
-                <!--Grid column-->
-
             </div>
-            <!--Grid row-->
-
         </div>
     </main>
 @endsection

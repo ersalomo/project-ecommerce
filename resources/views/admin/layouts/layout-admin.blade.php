@@ -27,9 +27,6 @@
         </div>
         @include('admin.layouts.inc.footer')
     </div>
-
-
-
     <script src="{{ asset('bootstrap/dist/libs/jQuery/jquery.js') }}"></script>
     <script src="{{ asset('bootstrap/dist/libs/apexcharts/dist/apexcharts.min.js') }}"></script>
     <script src="{{ asset('bootstrap/dist/js/tabler.min.js') }}"></script>
@@ -40,5 +37,21 @@
     @stack('scripts')
     @livewireScripts
 </body>
+<script>
+    window.addEventListener("showToastr", function(event) {
+        toastr.remove();
+        if (event.detail.type === 'info') {
+            toastr.info(event.detail.message)
+        } else if (event.detail.type === 'success') {
+            toastr.success(event.detail.message)
+        } else if (event.detail.type === 'error') {
+            toastr.error(event.detail.message)
+        } else if (event.detail.type === 'warning') {
+            toastr.warning(event.detail.message)
+        } else {
+            return false
+        }
+    })
+</script>
 
 </html>

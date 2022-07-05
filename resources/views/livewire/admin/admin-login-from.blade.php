@@ -29,9 +29,7 @@
                 <div class="mb-2">
                     <label class="form-label">
                         Password
-                        <span class="form-label-description">
-                            <a href="{{ url('author/forgot-password') }}">I forgot password</a>
-                        </span>
+
                     </label>
                     <div class="input-group input-group-flat">
                         <input id="showPassword" type="password" class="form-control" wire:model="password"

@@ -7,22 +7,16 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
     <title>@yield('title')</title>
-    <link rel="icon" type="image/x-icon" href="https://www.flaticon.com/free-icons/shopping-cart">
-    <link href="bootstrap/dist/libs/iJabo/ijabo.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="{{ asset('bootstrap/dist/libs/ijaboCroptool/ijaboCroptool.min.css') }}">
-    <!-- Bootstrap icons-->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
-    </script>
-
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-    {{-- <link rel="stylesheet" href="{{ asset('bootstrap/js/bootstrap.min.css') }}"> --}}
-    {{-- <link rel="stylesheet" href="{{ asset('bootstrap/css/font-awesome.css') }}"> --}}
-    {{-- <script src="{{ asset('bootstrap/js/popup.js') }}"></script> --}}
-    <script src="{{ asset('bootstrap/js/bootstrap.min.js') }}"></script>
-    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="{{ asset('bootstrap/dist/libs/iJabo/ijabo.min.css') }}" rel="stylesheet" />
+    <link href="{{ asset('bootstrap/dist/libs/ijaboCroptool/ijaboCroptool.min.css') }}" rel="stylesheet">
     <link href="{{ asset('bootstrap/css/styles.css') }}" rel="stylesheet" />
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="{{ asset('bootstrap/dist/css/tabler.min.css') }}" rel="stylesheet" />
+    <link href="{{ asset('bootstrap/dist/css/tabler-flags.min.css') }}" rel="stylesheet" />
+    <link href="{{ asset('bootstrap/dist/css/tabler-payments.min.css') }}" rel="stylesheet" />
+    <link href="{{ asset('bootstrap/dist/css/tabler-vendors.min.css') }}" rel="stylesheet" />
+    <link href="{{ asset('bootstrap/dist/css/demo.min.css') }}" rel="stylesheet" />
+    <link rel="icon" type="image/x-icon" href="https://www.flaticon.com/free-icons/shopping-cart">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
     @livewireStyles
     <style>
         * {
@@ -48,11 +42,14 @@
     @include('home/inc/footer')
     @livewireScripts
     <script src="{{ asset('bootstrap/dist/libs/jQuery/jquery.js') }}"></script>
+    {{-- <script src="{{ asset('bootstrap/dist/libs/apexcharts/dist/apexcharts.min.js') }}"></script> --}}
+    {{-- <script src="{{ asset('bootstrap/dist/js/demo.min.js') }}"></script> --}}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="{{ asset('bootstrap/dist/libs/iJabo/ijabo.min.js') }}"></script>
     <script src="{{ asset('bootstrap/dist/libs/ijaboCroptool/ijaboCropTool.min.js') }}"></script>
     <script src="{{ asset('bootstrap/dist/libs/ijaboViewer/jquery.ijaboViewer.min.js') }}"></script>
-    <!-- Tabler Core -->
-    <script src="bootstrap/dist/js/tabler.min.js"></script>
+    <script src="{{ asset('bootstrap/dist/js/tabler.min.js') }}"></script>
+    <script src="{{ asset('bootstrap/dist/js/tabler.min.js') }}"></script>
     @stack('scripts')
     <script>
         window.addEventListener("showToastr", function(event) {
