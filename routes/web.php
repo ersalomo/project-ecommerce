@@ -5,7 +5,6 @@ use App\Http\Controllers\homeController;
 use App\Http\Controllers\detailController;
 use App\Http\Controllers\cartController;
 use App\Http\Controllers\authController;
-use App\Http\Controllers\checkOutInsertTransactionController as checkOut;
 
 
 Route::get('/', function () {
@@ -33,9 +32,6 @@ Route::middleware(['auth:web'])->group(function () {
     Route::get('home-page/all-cards', [cartController::class, 'index'])->name("all-cards");
     Route::post('home-page/add-Card', [cartController::class, 'addToCart'])->name("add-card");
     Route::patch('/updateCard/{id}', [cartController::class, 'updateQty'])->name("update-Card");
-    // checkout
-    Route::post('checkout', [checkout::class, 'checkout'])->name('checkout');
-
     //user-profile
     Route::view('user-profile', 'user.user-profile')->name('user-profile');
     Route::post('changeImage', [App\Http\Controllers\User\UserController::class, 'changeImage'])->name('changeImage');

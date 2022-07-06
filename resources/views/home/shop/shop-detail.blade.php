@@ -4,8 +4,14 @@
     <main class="mt-2 pt-4">
         <div class="container dark-grey-text mt-0">
             @if (Session::get('error'))
-                <div class="alert alert-danger">
-                    {{ Session::get('error') }}
+                <div class="alert alert-important alert-warning alert-dismissible col-4 mx-auto                                                                                                         "
+                    role="alert">
+                    <div class="d-flex">
+                        <div>
+                            {{ Session::get('error') }}
+                        </div>
+                    </div>
+                    <a class="btn-close btn-close-white" data-bs-dismiss="alert" aria-label="close"></a>
                 </div>
             @endif
             <div class="row wow fadeIn">

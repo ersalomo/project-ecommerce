@@ -1,5 +1,4 @@
 <div>
-    {{-- Do your work, then step back. --}}
     <div class="container-fluid">
         <div class="container">
             <div class="row my-2">
@@ -45,11 +44,6 @@
                                         <div class="col-2 offset- " style="background-color:">
                                             <select class="form-control py-0 quantity" name="qty"
                                                 data-item="{{ $cart->id }}" name="" id="">
-                                                {{-- @php
-                                                    for ($i = 1; $i <= 10; $i++) {
-                                                        echo '<option value=' . $i . ' ' . $cart->qty == $i ? 'selected' : '' . ">$i</option>";
-                                                    }
-                                                @endphp --}}
                                                 @for ($i = 1; $i <= 10; $i++)
                                                     <option values="{{ $i }}"
                                                         {{ $cart->qty == $i ? 'selected' : '' }}>{{ $i }}
@@ -91,23 +85,35 @@
                     <div class="card-footer" style="background-color:;">
                         <div class="d-flex flex-row-reverse bd-highlight" style="background-color:;">
                             @if ($items >= 1)
-                                <form action="{{ route('checkout') }}" method="POST">
-                                    @csrf
-                                    <button class="btn btn-primary btn-md" type="submit">Checkout</button>
-                                </form>
+                                <button class="btn btn-primary btn-md" wire:click="checkout()"
+                                    type="submit">Checkout</button>
                             @else
+                                <a href="/home-page" class="btn btn-primary btn-md">Back to Home</a>
                             @endif
 
                         </div>
                     </div>
                     <hr>
-                    {{-- d-flex flex-row-reverse bd-highlight --}}
-
                 </div>
-                {{-- end-card --}}
             </div>
 
         </div>
+        @include('home.modals.modal-checkout')
+        @push('scripts')
+            <script>
+                window.addEventListener('checkOutProduct', (e) => {
+                    $('.checkOutProduct').modal('show');
+                })
+                $(function() {
+                    $('.btnBackHome').click(function() {
+                        location.href = '{{ route('home-page') }}'
+                    })
+                    $('.btnToGmail').click(function() {
+                        location.href = 'https://gmail.com'
+                    })
+                })
+            </script>
+        @endpush
         <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
         <script>
             const classname = document.querySelectorAll('.quantity')
@@ -128,6 +134,5 @@
                 })
             })
         </script>
-
     </div>
 </div>
