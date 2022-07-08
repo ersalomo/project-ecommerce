@@ -47,16 +47,16 @@
                                         </th>
                                         <th>Nama User</th>
                                         <th>Nama product</th>
-                                        <th>Price</th>
-                                        <th>image</th>
+                                        <th>Harga</th>
+                                        <th>Jumlah</th>
+                                        <th>Total/Item</th>
+                                        <th>Status</th>
                                         <th>Created_at</th>
-                                        <th>Update_at</th>
                                         <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
-
-                                    @foreach ($data_transactions as $dt)
+                                    @foreach ($datas as $dt)
                                         <tr>
                                             <td>
                                                 <input class="form-check-input m-0 align-middle" type="checkbox"
@@ -64,32 +64,15 @@
                                             </td>
 
                                             <td>
-                                                <span
-                                                    class="text-muted">{{ $loop->iteration + $data_transactions->firstItem() - 1 }}</span>
+                                                <span class="text-muted">{{ $loop->iteration }}</span>
                                             </td>
-
-                                            <td></td>
-                                            <td> </td>
-                                            <td></td>
-                                            <td></td>
-
-                                            <td><span class="badge bg-success me-1"></span>{{ $dt->created_at }}</td>
-                                            <td>{{ $dt->updated_at }}</td>
-                                            <td class="text-end">
-                                                <span class="dropdown">
-                                                    <button class="btn dropdown-toggle align-text-top"
-                                                        data-bs-boundary="viewport"
-                                                        data-bs-toggle="dropdown">Actions</button>
-                                                    <div class="dropdown-menu dropdown-menu-end">
-                                                        <a class="dropdown-item" href="#">
-                                                            Action
-                                                        </a>
-                                                        <a class="dropdown-item" href="#">
-                                                            Another action
-                                                        </a>
-                                                    </div>
-                                                </span>
-                                            </td>
+                                            <td>{{ $dt->nama_user }}</td>
+                                            <td>{{ $dt->product_name }}</td>
+                                            <td>Rp. {{ $dt->price }}</td>
+                                            <td>{{ $dt->qty }}</td>
+                                            <td>Rp. {{ $dt->qty * $dt->price }}</td>
+                                            <td> <span class="badge bg-success me-1"></span> Paid</td>
+                                            <td class="col-1">{{ $dt->created_at }}</td>
                                         </tr>
                                     @endforeach
 
@@ -99,13 +82,13 @@
                         </div>
                         <div class="card-footer d-flex align-items-center">
                             <p class="m-0 text-muted">Showing <span>1</span> to
-                                <span>{{ $data_transactions->perPage() }}</span> of
-                                <span>{{ $data_transactions->total() }}</span>
+                                {{-- <span>{{ $datas->perPage() }}</span> of --}}
+                                {{-- <span>{{ $datas->total() }}</span> --}}
                                 entries
                             </p>
                             <ul class="pagination m-0 ms-auto">
 
-                                {{ $data_transactions->links() }}
+                                {{-- {{ $datas->links() }} --}}
 
                             </ul>
                         </div>

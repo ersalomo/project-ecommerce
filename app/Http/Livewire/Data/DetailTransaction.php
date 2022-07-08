@@ -11,10 +11,8 @@ class DetailTransaction extends Component
 {
     public function render()
     {
-        $data_transactions = Details_Transac::paginate(10);
-        // $data_transactions = Details_Transac::get();
-        $data_transactions->timestamps = false;
+        $datas  = Details_Transac::detailTransaction();
         Paginator::useBootstrap();
-        return view('livewire.data.detail-transaction', compact('data_transactions'));
+        return view('livewire.data.detail-transaction', compact('datas'));
     }
 }

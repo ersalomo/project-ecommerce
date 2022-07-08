@@ -47,7 +47,6 @@
                                         <th>Price</th>
                                         <th>Quantity</th>
                                         <th>Sub Total</th>
-                                        <th>Status</th>
                                         <th>Created_at</th>
                                         <th></th>
                                     </tr>
@@ -61,7 +60,7 @@
                                             <td><a href="invoice.html" class="text-reset" tabindex="-1">
                                                     {{ $cart->getUser->name }}</a></td>
                                             <td>
-                                                <span class="flag flag-country-us"></span>
+
                                                 {{ $cart->getProducts->product_name }}
                                             </td>
                                             <td>
@@ -74,25 +73,9 @@
                                             <td>
                                                 Rp. {{ number_format($cart->getProducts->price * $cart->qty) }}
                                             </td>
-                                            <td>
-                                                <span class="badge bg-success me-1"></span> Paid
-                                            </td>
+
                                             <td>{{ $cart->created_at }}</td>
-                                            <td class="text-end">
-                                                <span class="dropdown">
-                                                    <button class="btn dropdown-toggle align-text-top"
-                                                        data-bs-boundary="viewport"
-                                                        data-bs-toggle="dropdown">Actions</button>
-                                                    <div class="dropdown-menu dropdown-menu-end">
-                                                        <a class="dropdown-item" href="#">
-                                                            Action
-                                                        </a>
-                                                        <a class="dropdown-item" href="#">
-                                                            Another action
-                                                        </a>
-                                                    </div>
-                                                </span>
-                                            </td>
+
                                         </tr>
                                     @endforeach
 
@@ -126,9 +109,8 @@
                                         next
                                         <!-- Download SVG icon from http://tabler-icons.io/i/chevron-right -->
                                         <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24"
-                                            height="24" viewBox="0 0 24 24" stroke-width="2"
-                                            stroke="currentColor" fill="none" stroke-linecap="round"
-                                            stroke-linejoin="round">
+                                            height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+                                            fill="none" stroke-linecap="round" stroke-linejoin="round">
                                             <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                                             <polyline points="9 6 15 12 9 18"></polyline>
                                         </svg>

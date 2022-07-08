@@ -5,7 +5,7 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use Illuminate\support\Facades\Auth;
 use App\Models\User;
-use Illuminate\Http\Request;
+use App\Models\LogUser;
 
 class LoginController extends Component
 {
@@ -40,6 +40,8 @@ class LoginController extends Component
             $checkUser = User::where($fieldType, $this->login_id)->first();
             if ($checkUser->type == 0) {
                 $this->showToastr('Login Succesfully', 'success');
+                $message = $checkUser->name . ' login sucessfully ';
+                LogUser::setMessageLog($message);
                 return redirect()->route('home-page');
             } else {
                 $this->showToastr('Login Succesfully', 'danger');

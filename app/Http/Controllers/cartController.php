@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Cart;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use App\Models\LogUser;
 
 class cartController extends Controller
 {
@@ -28,6 +29,10 @@ class cartController extends Controller
             'product_id' => $request->product_id,
             'qty' => 1
         ]);
+        $product_name = $request->product_name;
+        $name_user    = Auth::user()->name;
+        $message = "$name_user menambah $product_name ke cart ";
+        LogUser::setMessageLog($message);
         return redirect('home-page/all-cards');
     }
     function updateQty(Request $request, $id)

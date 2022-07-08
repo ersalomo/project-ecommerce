@@ -19,7 +19,7 @@
                                         </svg>
                                     </span>
                                 </div>
-                                <div class="h1 m-0">Rp. </div>
+                                <div class="h1 m-0">Rp. {{ number_format($total) }} </div>
                                 <div class="text-muted mb-3">Sales</div>
                             </div>
                         </div>

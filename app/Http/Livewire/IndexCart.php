@@ -8,6 +8,7 @@ use App\Models\Cart;
 use App\Models\User;
 use App\Models\Transaction;
 use App\Jobs\CheckOutJob;
+use App\Models\LogUser;
 
 class IndexCart extends Component
 {
@@ -45,15 +46,25 @@ class IndexCart extends Component
         $carts = Cart::where('user_id', Auth::user()->id);
         $user = User::where('email', Auth::user()->email)->first();
         $cardDatas = $carts->get();
+
         $transaction = Transaction::create([
             'user_id' => Auth::user()->id,
         ]);
+
         foreach ($cardDatas as $card) {
             $transaction->getTransaction()->create([
                 'product_id' => $card->product_id,
                 'qty'        => $card->qty
             ]);
         }
+        $jumlahQty = 0;
+        foreach ($cardDatas as $cart) {
+            $jumlahQty += $cart->qty;
+        }
+        $item = $cardDatas->count() > 1 ? $cardDatas->count() . ' items' : $cardDatas->count() . ' item';
+        $message = "$user->name  melakukan checkout $item sebanyak $jumlahQty ";
+
+        LogUser::setMessageLog($message);
         $data = array(
             'name' => $user->name,
             'dataPesanan' => $cardDatas

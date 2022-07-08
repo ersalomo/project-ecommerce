@@ -37,6 +37,8 @@
                         <form class="d-flex justify-content-left" method="post" action="{{ route('add-card') }}">
                             @csrf
                             <input type="hidden" name="product_id" value="{{ $product->id }}" />
+                            <input type="hidden" name="product_name" value="{{ $product->product_name }}" />
+
                             <button class="btn btn-info btn-md my-0" type="submit">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                     class="bi bi-cart-check" viewBox="0 0 16 16">
