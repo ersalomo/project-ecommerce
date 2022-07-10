@@ -1,21 +1,30 @@
 <header class="navbar navbar-expand-md navbar-light d-print-none">
     <div class="container-xl px-4 px-lg-5">
         <h1 class="navbar-brand navbar-brand-autodark d-none-navbar-horizontal pe-0 pe-md-3">
-            <a class="navbar-brand" href="#">EI-Commerce</a>
+            <a class="navbar-brand" href="#">E-Shooping</a>
         </h1>
         @auth
             <div class="navbar-nav flex-row order-md-last">
-                <form class="mt-2">
-                    <a href="{{ route('all-cards') }}" class="btn btn-outline-dark" type="submit">
-                        <i class="bi-cart-fill me-1"></i>
+                <form class="mt-2 mr-2">
+                    <a href="{{ route('all-cards') }}" class="btn btn-outline-dark">
+                        <!-- Download SVG icon from http://tabler-icons.io/i/shopping-cart -->
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
+                            viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <circle cx="6" cy="19" r="2" />
+                            <circle cx="17" cy="19" r="2" />
+                            <path d="M17 17h-11v-14h-2" />
+                            <path d="M6 5l14 1l-1 7h-13" />
+                        </svg>
                         <b class="">Cart</b>
                         <span
-                            class="badge cart bg-dark text-white ms-1 rounded-pill">{{ Auth::user()->getCountCart->count() }}
+                            class="badge cart bg-dark text-white ms-1 rounded-pill mr-1">{{ Auth::user()->getCountCart->count() }}
                         </span>
                     </a>
                 </form>
 
-                <div class="nav-item dropdown">
+                <div class="nav-item dropdown mx-1">
                     <a href="#" class="nav-link d-flex lh-1 text-reset p-0" data-bs-toggle="dropdown"
                         aria-label="Open user menu">
                         <span class="avatar avatar-sm"
@@ -32,7 +41,8 @@
                         <a class="dropdown-item">Settings</a>
                         <form method="post" action="{{ route('logout') }}">
                             @csrf
-                            <button type="submit" class="btn btn-outline-danger">
+                            <button type="submit " class="btn btn-ghost-danger shadow-none">
+                                <input type="button">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                     class="bi bi-arrow-bar-left" viewBox="0 0 16 16">
                                     <path fill-rule="evenodd"
@@ -70,7 +80,6 @@
                             <a class="nav-link dropdown-toggle" href="#navbar-extra" data-bs-toggle="dropdown"
                                 data-bs-auto-close="outside" role="button" aria-expanded="false">
                                 <span class="nav-link-icon d-md-none d-lg-inline-block">
-                                    <!-- Download SVG icon from http://tabler-icons.io/i/star -->
                                     <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
                                         viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
                                         stroke-linecap="round" stroke-linejoin="round">
@@ -81,14 +90,14 @@
                                     </svg>
                                 </span>
                                 <span class="nav-link-title">
-                                    Extra
+                                    Shop
                                 </span>
                             </a>
                             <div class="dropdown-menu">
                                 <a class="dropdown-item" href="{{ route('home-page') }}">
                                     All Products
                                 </a>
-                                <a class="dropdown-item" href="./gallery.html">
+                                <a class="dropdown-item">
                                     Gallery
                                 </a>
 

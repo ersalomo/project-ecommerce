@@ -1,7 +1,7 @@
 <div class="table-responsive container">
-    <table class="table table-vcenter">
+    <table class="table table-center">
         <thead>
-            <tr>
+            <tr class="">
                 <th>#</th>
                 <th>Photo</th>
                 <th>Name</th>
@@ -22,12 +22,17 @@
                             alt="" style="width:80px">
                     </th>
                     <td>{{ $user->name }}</td>
-                    <td class="text-muted"><a href="#" class="text-reset">{{ $user->email }}</a></td>
-                    <td class="text-muted">{{ $user->username }}</td>
-                    <td class="font-italic">{{ $user->email_verified_At == null ? 'Not verified yet' : 'Verified' }}
+                    <td class=""><a href="#" class="text-reset">{{ $user->email }}</a></td>
+                    <td class="">{{ $user->username }}</td>
+                    <td class="">
+                        <cite>
+                            <strong>
+
+                                {{ $user->email_verified_At == null ? 'Not verified yet' : 'Verified' }}
+                            </strong>
+                        </cite>
                     </td>
                     <td>{{ $user->address }}</td>
-                    <td><a href="" class="btn btn-outline-warning"><i class=""></i>Edit</a></td>
 
                 </tr>
             @endforeach
