@@ -16,6 +16,7 @@ Route::prefix('admin')->name("admin.")->group(function () {
         Route::view('data-carts', 'admin.pages.data.data-carts')->name('data-carts');
         Route::view('data-transactions', 'admin.pages.data.data_transaction')->name('data-transactions');
         Route::view('detail-transactions', 'admin.pages.data.list-detail-trans')->name('detail-transaction');
+        Route::view('users', 'admin.users.data-users')->name('all-users');
         Route::post('logout', [AdminController::class, 'logout'])->name('logout');
         Route::post('updateImage', [ProdcutController::class, 'changeProfilePicture'])->name('updateImage');
         Route::post('addProductImage', [ProdcutController::class, 'addProduct'])->name('addProduct');
