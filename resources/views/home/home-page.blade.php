@@ -7,6 +7,7 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
     <title>@yield('title')</title>
+    <link rel="shortcut icon" href="{{ asset('icon-buku.png') }}" type="image/x-icon" />
     <link href="{{ asset('bootstrap/dist/libs/iJabo/ijabo.min.css') }}" rel="stylesheet" />
     <link href="{{ asset('bootstrap/dist/libs/ijaboCroptool/ijaboCroptool.min.css') }}" rel="stylesheet">
     <link href="{{ asset('bootstrap/css/styles.css') }}" rel="stylesheet" />
@@ -15,7 +16,6 @@
     <link href="{{ asset('bootstrap/dist/css/tabler-payments.min.css') }}" rel="stylesheet" />
     <link href="{{ asset('bootstrap/dist/css/tabler-vendors.min.css') }}" rel="stylesheet" />
     <link href="{{ asset('bootstrap/dist/css/demo.min.css') }}" rel="stylesheet" />
-    <link rel="icon" type="image/x-icon" href="https://www.flaticon.com/free-icons/shopping-cart">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
     @livewireStyles
     <style>

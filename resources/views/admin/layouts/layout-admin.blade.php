@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>@yield('pageTitle')</title>
+    <link rel="shortcut icon" href="{{ asset('icon-buku.png') }}" type="image/x-icon" />
     <base href="/">
     <link href="bootstrap/dist/css/tabler.min.css" rel="stylesheet" />
     <link href="bootstrap/dist/css/tabler-flags.min.css" rel="stylesheet" />
