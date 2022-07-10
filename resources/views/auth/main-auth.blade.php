@@ -10,6 +10,7 @@
     <link href="bootstrap/dist/css/tabler-payments.min.css" rel="stylesheet" />
     <link href="bootstrap/dist/css/tabler-vendors.min.css" rel="stylesheet" />
     <link href="bootstrap/dist/libs/iJabo/ijabo.min.css" rel="stylesheet" />
+    <link rel="shortcut icon" href="{{ asset('icon-buku.png') }}" type="image/x-icon" />
     <link rel="stylesheet" href="{{ asset('bootstrap/dist/libs/ijaboCroptool/ijaboCroptool.min.css') }}">
     <base href="/">
     @stack('stylesheets')

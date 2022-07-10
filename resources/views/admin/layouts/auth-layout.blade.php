@@ -11,6 +11,7 @@
     <link href="bootstrap/dist/css/tabler-flags.min.css" rel="stylesheet" />
     <link href="bootstrap/dist/css/tabler-payments.min.css" rel="stylesheet" />
     <link href="bootstrap/dist/css/tabler-vendors.min.css" rel="stylesheet" />
+    <link rel="shortcut icon" href="{{ asset('icon-buku.png') }}" type="image/x-icon" />
     @stack('stylesheets')
     @livewireStyles
     <link href="./back/dist/css/demo.min.css" rel="stylesheet" />
