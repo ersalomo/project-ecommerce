@@ -21,7 +21,6 @@
 <body class=" border-top-wide border-primary d-flex flex-column" style="background-color:rgb(194, 195, 199)">
     <div class="page page-center">
         @yield('content')
-
     </div>
     @stack('scripts')
     @livewireScripts

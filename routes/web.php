@@ -35,6 +35,7 @@ Route::middleware(['auth:web'])->group(function () {
     //user-profile
     Route::view('user-profile', 'user.user-profile')->name('user-profile');
     Route::post('changeImage', [App\Http\Controllers\User\UserController::class, 'changeImage'])->name('changeImage');
+    Route::post('uploadProfile', [App\Http\Controllers\User\UserController::class, 'uploadProfile'])->name('uploadProfile');
 });
 
 
