@@ -23,7 +23,7 @@ class ProductSeed extends Seeder
                 'category_id' => $faker->numberBetween(1, 6),
                 'product_name' => $faker->bothify('???-#?##'),
                 'price' => $faker->numberBetween(23_000, 940_000),
-                'image' => 'https://picsum.photos/450/300?random=' . $this->faker->numberBetween(1, 100),
+                'image' => 'https://picsum.photos/450/300?random=' . $faker->numberBetween(1, 100),
                 'description' => $faker->paragraph(1),
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()

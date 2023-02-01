@@ -1,5 +1,5 @@
 {{-- <div class="modal-dialog modal-sm" role="document"> --}}
-<div class="modal fade checkOutProduct" wire:ignore.self tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+<div wire:ignore.self class="modal fade checkOutProduct" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
     aria-hidden="true" data-keyboard="false" data-backdrop="static">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">

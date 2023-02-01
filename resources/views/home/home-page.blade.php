@@ -28,14 +28,17 @@
 <body>
     <!-- Navigation-->
     @include('home.inc.navbar')
-    <header class="bg-dark py-1 mb-2 hidden-this-for-profile">
-        <div class="container px-4 px-lg-5 my-5">
-            <div class="text-center text-white">
-                <h1 class="display-4 fw-bolder">Shop in style</h1>
-                <p class="lead fw-normal text-white-50 mb-0">Welcome to website E-Shooping simple portfolio </p>
+    @if (!request()->is('user-profile'))
+        <header class="bg-dark py-1 mb-2 hidden-this-for-profile">
+            <div class="container px-4 px-lg-5 my-5">
+                <div class="text-center text-white">
+                    <h1 class="display-4 fw-bolder">Shop in style</h1>
+                    <p class="lead fw-normal text-white-50 mb-0">Welcome to website E-Shooping simple portfolio </p>
+                </div>
             </div>
-        </div>
-    </header>
+        </header>
+    @endif
+
     <!-- Section-->
     @yield('content')
     <!-- Footer-->

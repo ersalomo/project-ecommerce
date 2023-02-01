@@ -47,3 +47,4 @@ Route::middleware(['auth:web'])->group(function () {
 //         'categories' => Category::all()
 //     ]);
 // });
+// Artisan::call('storage:link');
